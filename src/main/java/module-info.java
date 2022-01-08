@@ -13,4 +13,6 @@ module database.bookstore {
 
     opens database.bookstore to javafx.fxml;
     exports database.bookstore;
+    exports database.bookstore.viewController;
+    opens database.bookstore.viewController to javafx.fxml;
 }
