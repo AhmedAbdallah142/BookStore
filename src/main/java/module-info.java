@@ -9,6 +9,7 @@ module database.bookstore {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+	requires java.sql;
 
     opens database.bookstore to javafx.fxml;
     exports database.bookstore;
