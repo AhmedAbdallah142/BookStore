@@ -12,6 +12,10 @@ public class User {
 	String phone_number;
 	String address;
 	boolean is_manager;
+	
+	public User() {
+		super();
+	}
 	public User(String user_name, String password, String first_name, String last_name, String email,
 			String phone_number, String address) {
 		super();
