@@ -8,97 +8,21 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <VBox alignment="CENTER" prefHeight="463.0" prefWidth="384.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.LogInController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <ImageView fitHeight="85.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../../images/pngaaa.com-1025083.png" />
-      </image>
-   </ImageView>
-    <Label style="-fx-effect: dropshadow( one-pass-box , black , 10 , 0.4 , 2 , 0 );" text="Email">
-        <font>
-            <Font name="Stencil" size="24.0" />
-        </font>
-        <textFill>
-            <RadialGradient centerX="0.4944444444444445" centerY="0.5047619047619047" focusAngle="-144.46" focusDistance="-0.06976744186046513" radius="0.813953488372093">
-                <stops>
-                    <Stop>
-                        <color>
-                            <Color red="0.9333333373069763" green="1.0" />
-                        </color>
-                    </Stop>
-                    <Stop offset="1.0">
-                        <color>
-                            <Color red="1.0" />
-                        </color>
-                    </Stop>
-                </stops>
-            </RadialGradient>
-        </textFill>
-    </Label>
-    <TextField prefHeight="41.0" prefWidth="349.0" promptText="example@gmail.com">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </TextField>
-    <Label style="-fx-effect: dropshadow( one-pass-box , black , 10 , 0.4 , 2 , 0 );" text="Password">
-        <font>
-            <Font size="24.0" />
-        </font>
-        <textFill>
-            <RadialGradient centerX="0.4944444444444445" centerY="0.5047619047619047" focusAngle="-144.46" focusDistance="-0.06976744186046513" radius="0.813953488372093">
-                <stops>
-                    <Stop>
-                        <color>
-                            <Color red="0.9333333373069763" green="1.0" />
-                        </color>
-                    </Stop>
-                    <Stop offset="1.0">
-                        <color>
-                            <Color red="1.0" />
-                        </color>
-                    </Stop>
-                </stops>
-            </RadialGradient>
-        </textFill>
-    </Label>
-    <TextField prefHeight="41.0" prefWidth="349.0" promptText="password">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </TextField>
-    <Button onAction="#onLogInClick" prefHeight="30.0" prefWidth="94.0" text="Log In ..." textFill="WHITE" underline="true">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </Button>
-    <Label onMouseClicked="#onSignUpClick" style="-fx-effect: dropshadow( one-pass-box , black , 10 , 0.4 , 2 , 0 );" text="Sign Up Instead-&gt;">
-        <font>
-            <Font size="14.0" />
-        </font>
-        <textFill>
-            <RadialGradient centerX="0.4944444444444445" centerY="0.5047619047619047" focusAngle="-144.46" focusDistance="-0.06976744186046513" radius="0.813953488372093">
-                <stops>
-                    <Stop>
-                        <color>
-                            <Color red="0.9333333373069763" green="1.0" />
-                        </color>
-                    </Stop>
-                    <Stop offset="1.0">
-                        <color>
-                            <Color red="1.0" />
-                        </color>
-                    </Stop>
-                </stops>
-            </RadialGradient>
-        </textFill>
+    <ImageView fitHeight="85.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../../images/pngaaa.com-1025081.png"/>
+    </ImageView>
+    <Label text="Email"/>
+    <TextField promptText="example@gmail.com"/>
+    <Label text="Password"/>
+    <PasswordField promptText="Password"/>
+    <Button onAction="#onLogInClick" prefHeight="30.0" prefWidth="94.0" text="Log In ..." underline="true"/>
+    <Label onMouseClicked="#onSignUpClick"  text="Sign Up Instead-&gt;">
         <cursor>
             <Cursor fx:constant="HAND" />
         </cursor>

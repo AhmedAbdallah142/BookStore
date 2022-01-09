@@ -2,16 +2,27 @@
     -fx-background-image: url("../../../../src/main/resources/images/background.jpg");
     /*-fx-background-image: url("https://www.wmadaat.com/upload/openbook/1(1).jpg");*/
     -fx-background-size: cover;
+    -fx-padding : 15;
 }
 .text-field{
     -fx-background-color : rgb(255,255,255,0.4);
     -fx-font-size: 18 ;
     -fx-text-fill: White;
+    -fx-min-width:300.0;
+    -fx-min-Height:40.0;
 }
 .button{
     -fx-background-color: #036ffc;
     -fx-text-fill: White;
+    -fx-font-size: 18;
 }
 .label{
     -fx-font-family: "Stencil";
+    -fx-effect: dropshadow( one-pass-box , black , 10 , 0.4 , 2 , 0 );
+    -fx-font-size: 22;
+    -fx-text-fill: radial-gradient(radius 180%, burlywood, derive(burlywood, -30%), derive(burlywood, 30%));
+}
+.password-field{
+    -fx-min-width:300.0;
+    -fx-min-Height:40.0;
 }
