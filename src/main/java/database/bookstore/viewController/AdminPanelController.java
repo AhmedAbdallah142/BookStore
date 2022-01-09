@@ -1,6 +1,7 @@
 package database.bookstore.viewController;
 
 import database.bookstore.database.BookDatabase;
+import database.bookstore.database.UserDatabase;
 import database.bookstore.entites.Book;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
@@ -80,15 +81,15 @@ public class AdminPanelController {
             throw new RuntimeException("authors is null");
         }
         Book book = new Book();
-        book.setISBN(Integer.parseInt(String.valueOf(addIsbn)));
-        book.setPublisher(String.valueOf(publisherName));
-        book.setTitle(String.valueOf(title));
-        book.setPublication_year(String.valueOf(publicationYear));
-        book.setPrice(Double.parseDouble(String.valueOf(price)));
-        book.setCategory(String.valueOf(category));
-        book.setThreshold(Integer.parseInt(String.valueOf(threshold)));
-        book.setCopies(Integer.parseInt(String.valueOf(noCopies)));
-        ArrayList<String> authors_list = new ArrayList<String>(List.of(String.valueOf(authors).split(",")));
+        book.setISBN(Integer.parseInt(addIsbn.getText()));
+        book.setPublisher(publisherName.getText());
+        book.setTitle(title.getText());
+        book.setPublication_year(publicationYear.getText());
+        book.setPrice(Double.parseDouble(price.getText()));
+        book.setCategory(category.getText());
+        book.setThreshold(Integer.parseInt(threshold.getText()));
+        book.setCopies(Integer.parseInt(noCopies.getText()));
+        ArrayList<String> authors_list = new ArrayList<String>(List.of(authors.getText().split(",")));
 
         BookDatabase bookDatabase = new BookDatabase();
         try {
@@ -104,7 +105,7 @@ public class AdminPanelController {
         }
         BookDatabase bookDatabase = new BookDatabase();
         try {
-            bookDatabase.removeBook(Integer.valueOf(String.valueOf(removeIsbn)));
+            bookDatabase.removeBook(Integer.valueOf(removeIsbn.getText()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -129,7 +130,15 @@ public class AdminPanelController {
     }
     @FXML
     protected void onAddAuthorClick(){
-
+        if (addAuthorName.getText().isEmpty()){
+            throw new RuntimeException("author is null");
+        }
+        UserDatabase userDatabase = new UserDatabase();
+        try {
+            userDatabase.addAuthor(addAuthorName.getText());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -139,7 +148,7 @@ public class AdminPanelController {
         }
         BookDatabase bookDatabase = new BookDatabase();
         try {
-            bookDatabase.addCategory(String.valueOf(addCategoryName));
+            bookDatabase.addCategory(addCategoryName.getText().trim());
         } catch (SQLException e) {
             e.printStackTrace();
         }
