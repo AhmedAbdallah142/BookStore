@@ -19,7 +19,7 @@
     </padding>
    <ImageView fitHeight="85.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
       <image>
-         <Image url="@../../images/bookIcon1.png" />
+         <Image url="@../../images/pngaaa.com-1025083.png" />
       </image>
    </ImageView>
     <Label style="-fx-effect: dropshadow( one-pass-box , black , 10 , 0.4 , 2 , 0 );" text="Email">
