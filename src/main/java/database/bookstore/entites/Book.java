@@ -27,6 +27,11 @@ public class Book {
 		Threshold = threshold;
 		Publication_year = publication_year;
 	}
+
+	public Book() {
+
+	}
+
 	public int getISBN() {
 		return ISBN;
 	}

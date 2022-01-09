@@ -1,30 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-         prefWidth="600.0" styleClass="root" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE"
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0"
+         prefWidth="654.0" rotateGraphic="true" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE"
          xmlns="http://javafx.com/javafx/16">
-    <Tab text="add book">
-        <VBox prefHeight="200.0" prefWidth="100.0">
+    <Tab text="Book">
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
             <HBox prefHeight="62.0" prefWidth="556.0" spacing="5.0">
-                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                      prefHeight="112.0" prefWidth="825.0">
-                    <Label text="Last Name"/>
-                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                               promptText="user last name"/>
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+                    <Label text="ISBN" />
+                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="ISBN" />
                 </VBox>
-                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                      prefHeight="112.0"
-                      prefWidth="825.0">
-                    <Label text="Last Name"/>
-                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                               promptText="user last name"/>
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+                    <Label text="No of Copies" />
+                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="no.copies" />
                 </VBox>
+            </HBox>
+            <HBox prefHeight="62.0" prefWidth="556.0" spacing="5.0">
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+                    <Label text="Publisher name" />
+                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="publisher name" />
+                </VBox>
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+                    <Label text="Title" />
+                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="book title" />
+                </VBox>
+            </HBox>
+            <HBox prefHeight="62.0" prefWidth="556.0" spacing="5.0">
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+                    <Label text="Publication year" />
+                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="publication year" />
+                </VBox>
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+                    <Label text="Price" />
+                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="price" />
+                </VBox>
+            </HBox>
+            <HBox prefHeight="62.0" prefWidth="556.0" spacing="5.0">
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+                    <Label text="Category" />
+                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="category" />
+                </VBox>
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+                    <Label text="Threshold" />
+                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="threshold" />
+                </VBox>
+            </HBox>
+         <Label text="Author name(s)" />
+         <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="first author , second author " />
+         <Button mnemonicParsing="false" text="ADD">
+            <VBox.margin>
+               <Insets top="10.0" />
+            </VBox.margin></Button>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="62.0" prefWidth="556.0" spacing="10.0">
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="67.0"
+                      prefWidth="714.0">
+                    <Label text="Book ISBN"/>
+                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="ISBN"/>
+                </VBox>
+                <Button minWidth="-Infinity" mnemonicParsing="false" text="Remove Book"/>
             </HBox>
         </VBox>
     </Tab>
-    <Tab text="Untitled Tab 1">
-        <VBox prefHeight="200.0" prefWidth="100.0"/>
+    <Tab text="Order">
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+            <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                <VBox prefHeight="568.0" prefWidth="1271.0">
+                    <Label text="ISBN:"/>
+                    <TextField promptText="book ISBN"/>
+                    <Label text="No Of Copies:"/>
+                    <TextField promptText="no.ofCopies"/>
+                </VBox>
+                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Add Order"/>
+            </HBox>
+            <TableView prefHeight="411.0" prefWidth="622.0">
+                <columns>
+                    <TableColumn prefWidth="188.0" text="order id"/>
+                    <TableColumn prefWidth="232.0" text="isbn"/>
+                    <TableColumn prefWidth="203.0" text="no of copies"/>
+                </columns>
+            </TableView>
+            <HBox alignment="CENTER" prefHeight="0.0" prefWidth="624.0" spacing="10.0">
+                <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="1264.0"
+                            text="Order">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="no.ofCopies"/>
+                        <MenuItem mnemonicParsing="false" text="publisher name"/>
+                        <MenuItem mnemonicParsing="false" text="Publication"/>
+                        <MenuItem mnemonicParsing="false" text="no.ofCopies"/>
+                        <MenuItem mnemonicParsing="false" text="no.ofCopies"/>
+                        <MenuItem mnemonicParsing="false" text="no.ofCopies"/>
+                        <MenuItem mnemonicParsing="false" text="no.ofCopies"/>
+                    </items>
+                </MenuButton>
+                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                        text="Confirm Order"/>
+            </HBox>
+        </VBox>
+    </Tab>
+    <Tab text="Users">
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+            <HBox alignment="BOTTOM_CENTER" prefHeight="0.0" prefWidth="624.0" spacing="10.0">
+                <VBox prefHeight="568.0" prefWidth="1271.0">
+                    <Label text="User Email:"/>
+                    <TextField promptText="user email"/>
+                </VBox>
+                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Promote User"/>
+            </HBox>
+            <TableView prefHeight="386.0" prefWidth="624.0">
+                <columns>
+                    <TableColumn prefWidth="152.0" text="Email"/>
+                    <TableColumn prefWidth="93.0" text="name"/>
+                    <TableColumn prefWidth="90.0" text="Phone"/>
+                    <TableColumn prefWidth="153.0" text="Address"/>
+                    <TableColumn prefWidth="135.0" text="Is Manager"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </Tab>
+    <Tab text="Book Owner">
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="35.0">
+            <HBox alignment="BOTTOM_CENTER" prefHeight="0.0" prefWidth="624.0" spacing="10.0">
+                <VBox prefHeight="568.0" prefWidth="1271.0">
+                    <Label text="Publisher Name:"/>
+                    <TextField promptText="publisher name"/>
+                    <Label text="Address:"/>
+                    <TextField promptText="publisher name"/>
+                    <Label text="Phone:"/>
+                    <TextField promptText="publisher name"/>
+                </VBox>
+                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                        text="Add Publisher"/>
+            </HBox>
+            <Separator prefHeight="32.0" prefWidth="624.0"/>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="0.0" prefWidth="624.0" spacing="10.0">
+                <VBox prefHeight="568.0" prefWidth="1271.0">
+                    <Label text="Author Name:"/>
+                    <TextField promptText="Author name"/>
+                </VBox>
+                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Add Author"/>
+            </HBox>
+        </VBox>
     </Tab>
 </TabPane>
