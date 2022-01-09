@@ -3,6 +3,7 @@ package database.bookstore.viewController;
 import database.bookstore.database.BookDatabase;
 import database.bookstore.database.UserDatabase;
 import database.bookstore.entites.Book;
+import database.bookstore.entites.Publisher;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
@@ -49,7 +50,7 @@ public class AdminPanelController {
     @FXML
     private TextField addAuthorName;
     @FXML
-    public TextField addCategoryName;
+    private TextField addCategoryName;
 
     @FXML
     protected void onAddClick() throws Exception {
@@ -121,12 +122,42 @@ public class AdminPanelController {
     }
     @FXML
     protected void onPromoteUserClick(){
-
+    	if (promoteUser.getText().trim().isEmpty()){
+            throw new RuntimeException("promoteUser name is null");
+        }
+    	UserDatabase userDatabase = new UserDatabase();
+    	try {
+			userDatabase.PromoteUser(promoteUser.getText().trim());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
     }
 
     @FXML
     protected void onAddPublisherClick(){
+    	if (addPublisherName.getText().trim().isEmpty()){
+            throw new RuntimeException("publisher name is null");
+        }
+    	if (addPublisherAddress.getText().trim().isEmpty()){
+            throw new RuntimeException("publisher address is null");
+        }
+    	if (addPublisherPhone.getText().trim().isEmpty()){
+            throw new RuntimeException("publisher phone is null");
+        }
+    	
+    	UserDatabase userDatabase = new UserDatabase();
+    	try {
 
+    		String addPublisherName_string = addPublisherName.getText().trim();
+    		String addPublisherAddress_string = addPublisherAddress.getText().trim();
+    		String addPublisherPhone_string = addPublisherPhone.getText().trim();
+    		
+    		Publisher publisher = new Publisher(addPublisherName_string, addPublisherAddress_string,
+    				addPublisherPhone_string);
+			userDatabase.addPublisher(publisher);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
     }
     @FXML
     protected void onAddAuthorClick(){
