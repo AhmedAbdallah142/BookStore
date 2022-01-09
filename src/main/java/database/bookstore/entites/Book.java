@@ -13,8 +13,6 @@ public class Book {
 	private int Threshold;
 	private ArrayList<String> authors;
 
-
-
 	public Book(int iSBN, String title, String publisher, double price, String category, int copies, int threshold,
 				String publication_year) {
 		super();

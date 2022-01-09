@@ -45,7 +45,6 @@ public class LogInController {
             UserDatabase u = new UserDatabase();
             if (!u.LogIn(email_string, password_string))
                 throw new RuntimeException("Wrong Email Or Password");
-            System.out.println(email_string);
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
