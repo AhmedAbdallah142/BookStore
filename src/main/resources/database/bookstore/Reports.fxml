@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<TabPane prefHeight="684.0" prefWidth="551.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.Reports">
+
+    <Tab text="Total Sales">
+        <VBox prefHeight="200.0" prefWidth="100.0" />
+        <VBox alignment="CENTER" prefHeight="715.0" prefWidth="565.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="The total sales for books in the previous month">
+                <VBox.margin>
+                    <Insets bottom="10.0" top="10.0" />
+                </VBox.margin>
+            </Text>
+            <TableView prefHeight="634.0" prefWidth="529.0">
+                <columns>
+                    <TableColumn prefWidth="253.0" text="ISBN" />
+                    <TableColumn prefWidth="267.0" text="Quantity" />
+                </columns>
+            </TableView>
+        </VBox>
+    </Tab>
+    <Tab text="Top 5 Customers">
+        <VBox alignment="CENTER" prefHeight="715.0" prefWidth="565.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="The top 5 customers who purchase the most amount">
+                <VBox.margin>
+                    <Insets bottom="10.0" top="10.0" />
+                </VBox.margin>
+            </Text>
+            <TableView prefHeight="634.0" prefWidth="529.0">
+                <columns>
+                    <TableColumn prefWidth="253.0" text="user name " />
+                    <TableColumn prefWidth="267.0" text="Quantity" />
+                </columns>
+            </TableView>
+        </VBox>
+    </Tab>
+    <Tab text="Top 10 Books">
+        <VBox alignment="CENTER" prefHeight="715.0" prefWidth="565.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="The top 10 selling books for the last three months">
+                <VBox.margin>
+                    <Insets bottom="10.0" top="10.0" />
+                </VBox.margin>
+            </Text>
+            <TableView prefHeight="634.0" prefWidth="529.0">
+                <columns>
+                    <TableColumn prefWidth="253.0" text="ISBN" />
+                    <TableColumn prefWidth="267.0" text="Quantity" />
+                </columns>
+            </TableView>
+        </VBox>
+    </Tab>
+</TabPane>

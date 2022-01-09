@@ -10,8 +10,6 @@
     -fx-text-fill: White;
     -fx-min-width:300.0;
     -fx-min-Height:40.0;
-    /*-fx-border-color: Yellow;
-    -fx-border-width: 0.5;*/
 }
 .button{
     -fx-background-color: #452118;
@@ -41,7 +39,6 @@
 
 .tab-pane {
   -fx-tab-min-width:120px;
-  -fx-tab-max-width:120px;
   -fx-tab-min-height:30px;
   -fx-tab-max-height:50px;
 }
@@ -54,4 +51,14 @@
 
 .tab:selected {
     -fx-background-color:#b0916b ;
+}
+.table-view {
+    -fx-background-color:#e0e5de ;
+}
+.table-column {
+    -fx-background-color:Black ;
+    -fx-pref-height : 45px;
+}
+.date-picker {
+    -fx-background-color:Transparent;
 }

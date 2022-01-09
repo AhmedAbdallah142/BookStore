@@ -15,9 +15,8 @@
     <VBox alignment="CENTER" prefHeight="370.0" prefWidth="172.0" spacing="200.0">
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../images/pngegg.png" />
-            </image></ImageView>
+                <Image url="@../../images/pngegg.png" />
+            </ImageView>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="user name" />
         </VBox>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
@@ -45,9 +44,10 @@
                 <TableColumn prefWidth="132.0" text="No.Copies" />
                 <TableColumn prefWidth="100.0" text="Price" />
                 <TableColumn prefWidth="146.0" text="Publisher" />
-                <TableColumn prefWidth="141.0" text="Category" />
-                <TableColumn prefWidth="119.0" text="Authors" />
-                <TableColumn prefWidth="98.0" text="year" />
+                <TableColumn prefWidth="119.0" text="Category" />
+                <TableColumn prefWidth="126.0" text="Authors" />
+                <TableColumn prefWidth="86.0" text="year" />
+            <TableColumn prefWidth="47.0" text="+" />
             </columns>
         </TableView>
     </VBox>
