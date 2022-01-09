@@ -14,7 +14,7 @@ public class BookDatabase {
         dataBase = Database.getInstance();
     }
 
-    public void insertBook(Book b) throws SQLException {
+    public Boolean insertBook(Book b) throws SQLException {
     	dataBase.getStatement().execute("INSERT INTO Book VALUES"
                 + "( "
                 + b.getISBN() + ","
@@ -35,10 +35,11 @@ public class BookDatabase {
                     + "):"
             );
         }
+        return true;
 
     }
 
-    public void modifyBook(Book newBook , Integer ISBN , ArrayList<String> newAuthors) throws SQLException {
+    public Boolean modifyBook(Book newBook , Integer ISBN , ArrayList<String> newAuthors) throws SQLException {
         // delete old authors that not found in newAuthors
         String newAuthorsNames = "";
         for (String name : newAuthors){
@@ -89,7 +90,57 @@ public class BookDatabase {
                 +"threshold = " + newBook.getThreshold() + " "
                 + "WHERE ISBN = " + ISBN + ";"
         );
+        return true;
 
      }
-    
+
+
+     private Book createBook(ResultSet resultSet) throws SQLException {
+        Book book = new Book();
+        book.setISBN(Integer.parseInt(resultSet.getString("ISBN")));
+        book.setTitle(resultSet.getString("title"));
+        book.setPublisher(resultSet.getString("publisher"));
+        book.setPublication_year(resultSet.getString("publication_year"));
+        book.setPrice(Double.parseDouble(resultSet.getString("price")));
+        book.setCategory(resultSet.getString("category"));
+        book.setCopies(Integer.parseInt(resultSet.getString("copies")));
+        book.setThreshold(Integer.parseInt(resultSet.getString("threshold")));
+        return book;
+     }
+
+     public Book searchByTitle(String title) throws SQLException {
+        ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * FROM Book WHERE title = " + title + ";");
+        Book book = createBook(resultSet);
+        resultSet.close();
+        return book;
+     }
+
+     public Book searchByISBN(Integer ISBN) throws SQLException {
+         ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * FROM Book WHERE ISBN = " + ISBN + ";");
+         Book book = createBook(resultSet);
+         resultSet.close();
+         return book;
+     }
+
+
+     private ArrayList<Book> getBooks(String q) throws SQLException {
+        ArrayList<Book> books = new ArrayList<>();
+        ResultSet resultSet = dataBase.getStatement().executeQuery(q);
+        while (resultSet.next()){
+            books.add(createBook(resultSet));
+        }
+        resultSet.close();
+        return books;
+     }
+
+     public ArrayList<Book> searchByAuthor (String author_name) throws SQLException {
+        String q = "SELECT * FROM Book WHERE Author = " + "'" + author_name + "'" + ";";
+        return getBooks(q);
+     }
+
+    public ArrayList<Book> searchByPublisher (String publisher_name) throws SQLException {
+        String q = "SELECT * FROM Book WHERE publisher = " + "'" + publisher_name + "'" + ";";
+        return getBooks(q);
+    }
+
 }
