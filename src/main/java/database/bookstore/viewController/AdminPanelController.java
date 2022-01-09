@@ -72,7 +72,12 @@ public class AdminPanelController {
     }
     @FXML
     protected void onRemoveClick(){
-
+        BookDatabase bookDatabase = new BookDatabase();
+        try {
+            bookDatabase.removeBook(Integer.valueOf(String.valueOf(removeIsbn)));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
