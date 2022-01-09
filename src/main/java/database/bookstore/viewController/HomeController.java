@@ -72,7 +72,7 @@ public class HomeController{
         ((Stage) ((Node)(event.getSource())).getScene().getWindow()).close();
     }
 
-    public void setUserName(){
-        username.setText("Faxawy");
+    public void setUserName(String userName){
+        this.username.setText(userName);
     }
 }

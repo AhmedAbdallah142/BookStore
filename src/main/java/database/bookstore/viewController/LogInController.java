@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -30,32 +32,35 @@ public class LogInController {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        ((Stage) ((Node)(event.getSource())).getScene().getWindow()).close();
+        ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
     }
 
     @FXML
-    protected void onLogInClick(Event event) throws IOException {
-    	if(!email.getText().trim().isEmpty() && !password.getText().trim().isEmpty()) {
-    		String email_string = email.getText().trim();
-    		String password_string = password.getText().trim();
-    		UserDatabase u = new UserDatabase();
-    		try {
-				if (u.LogIn(email_string, password_string)){
-					System.out.println(email_string);
-					Stage stage = new Stage();
-			        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home.fxml"));
-			        Scene scene = new Scene(fxmlLoader.load());
-			        stage.setTitle("Book Store ...!");
-			        stage.setScene(scene);
-			        HomeController h = fxmlLoader.getController();
-			        h.setUserName();
-			        stage.setResizable(false);
-			        stage.show();
-			        ((Stage) ((Node)(event.getSource())).getScene().getWindow()).close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-    	}
+    protected void onLogInClick(Event event){
+        try {
+            if (email.getText().trim().isEmpty() || password.getText().trim().isEmpty())
+                throw new RuntimeException("Empty Fields");
+            String email_string = email.getText().trim();
+            String password_string = password.getText().trim();
+            UserDatabase u = new UserDatabase();
+            if (!u.LogIn(email_string, password_string))
+                throw new RuntimeException("Wrong Email Or Password");
+            System.out.println(email_string);
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle("Book Store ...!");
+            stage.setScene(scene);
+            HomeController h = fxmlLoader.getController();
+            ControllerRepo.setUser(u.getUser(email_string));
+            h.setUserName(ControllerRepo.getUser().getUser_name());
+            stage.setResizable(false);
+            stage.show();
+            ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+
     }
 }
