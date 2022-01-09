@@ -48,7 +48,8 @@
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
                           prefWidth="825.0">
                         <Label text="Publisher name"/>
-                        <TextField fx:id="publisherName" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="publisherName" maxHeight="1.7976931348623157E308"
+                                   maxWidth="1.7976931348623157E308"
                                    promptText="publisher name"/>
                     </VBox>
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
@@ -62,7 +63,8 @@
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
                           prefWidth="825.0">
                         <Label text="Publication year"/>
-                        <TextField fx:id="publicationYear" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="publicationYear" maxHeight="1.7976931348623157E308"
+                                   maxWidth="1.7976931348623157E308"
                                    promptText="publication year"/>
                     </VBox>
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
@@ -82,7 +84,8 @@
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
                           prefWidth="825.0">
                         <Label text="Threshold"/>
-                        <TextField fx:id="threshold" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="threshold" maxHeight="1.7976931348623157E308"
+                                   maxWidth="1.7976931348623157E308"
                                    promptText="threshold"/>
                     </VBox>
                 </HBox>
@@ -98,10 +101,12 @@
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="67.0"
                           prefWidth="714.0">
                         <Label text="Book ISBN"/>
-                        <TextField fx:id="removeIsbn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="removeIsbn" maxHeight="1.7976931348623157E308"
+                                   maxWidth="1.7976931348623157E308"
                                    promptText="ISBN"/>
                     </VBox>
-                    <Button minWidth="-Infinity" mnemonicParsing="false" text="Remove Book"/>
+                    <Button onMouseClicked="#onRemoveClick" minWidth="-Infinity" mnemonicParsing="false"
+                            text="Remove Book"/>
                 </HBox>
             </VBox>
         </Tab>
@@ -110,11 +115,12 @@
                 <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                     <VBox prefHeight="568.0" prefWidth="1271.0">
                         <Label text="ISBN:"/>
-                        <TextField promptText="book ISBN"/>
+                        <TextField fx:id="OrderISBN" promptText="book ISBN"/>
                         <Label text="No Of Copies:"/>
-                        <TextField promptText="no.ofCopies"/>
+                        <TextField fx:id="OrderNoCopies" promptText="no.ofCopies"/>
                     </VBox>
-                    <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Add Order"/>
+                    <Button onMouseClicked="#onAddOrderClick" minHeight="-Infinity" minWidth="-Infinity"
+                            mnemonicParsing="false" text="Add Order"/>
                 </HBox>
                 <TableView prefHeight="411.0" prefWidth="622.0">
                     <columns>
@@ -124,19 +130,9 @@
                     </columns>
                 </TableView>
                 <HBox alignment="CENTER" prefHeight="0.0" prefWidth="624.0" spacing="10.0">
-                    <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="1264.0"
-                                text="Order">
-                        <items>
-                            <MenuItem mnemonicParsing="false" text="no.ofCopies"/>
-                            <MenuItem mnemonicParsing="false" text="publisher name"/>
-                            <MenuItem mnemonicParsing="false" text="Publication"/>
-                            <MenuItem mnemonicParsing="false" text="no.ofCopies"/>
-                            <MenuItem mnemonicParsing="false" text="no.ofCopies"/>
-                            <MenuItem mnemonicParsing="false" text="no.ofCopies"/>
-                            <MenuItem mnemonicParsing="false" text="no.ofCopies"/>
-                        </items>
-                    </MenuButton>
-                    <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Confirm Order"/>
+                    <MenuButton fx:id="confirmOrder" alignment="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="1264.0"
+                                text="Order"/>
+                    <Button onMouseClicked="#onConfirmOrderClick" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Confirm Order"/>
                 </HBox>
             </VBox>
         </Tab>
@@ -145,9 +141,9 @@
                 <HBox alignment="BOTTOM_CENTER" prefHeight="0.0" prefWidth="624.0" spacing="10.0">
                     <VBox prefHeight="568.0" prefWidth="1271.0">
                         <Label text="User Email:"/>
-                        <TextField promptText="user email"/>
+                        <TextField fx:id="promoteUser" promptText="user email"/>
                     </VBox>
-                    <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Promote User"/>
+                    <Button onMouseClicked="#onPromoteUserClick" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Promote User"/>
                 </HBox>
                 <TableView prefHeight="386.0" prefWidth="624.0">
                     <columns>
@@ -165,21 +161,21 @@
                 <HBox alignment="BOTTOM_CENTER" prefHeight="0.0" prefWidth="624.0" spacing="10.0">
                     <VBox prefHeight="568.0" prefWidth="1271.0">
                         <Label text="Publisher Name:"/>
-                        <TextField promptText="publisher name"/>
+                        <TextField fx:id="addPublisherName" promptText="publisher name"/>
                         <Label text="Address:"/>
-                        <TextField promptText="publisher name"/>
+                        <TextField fx:id="addPublisherAddress" promptText="publisher address"/>
                         <Label text="Phone:"/>
-                        <TextField promptText="publisher name"/>
+                        <TextField fx:id="addPublisherPhone" promptText="publisher phone"/>
                     </VBox>
-                    <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Add Publisher"/>
+                    <Button onMouseClicked="#onAddPublisherClick" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Add Publisher"/>
                 </HBox>
                 <Separator prefHeight="32.0" prefWidth="624.0"/>
                 <HBox alignment="BOTTOM_CENTER" prefHeight="0.0" prefWidth="624.0" spacing="10.0">
                     <VBox prefHeight="568.0" prefWidth="1271.0">
                         <Label text="Author Name:"/>
-                        <TextField promptText="Author name"/>
+                        <TextField fx:id="addAuthorName" promptText="Author name"/>
                     </VBox>
-                    <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Add Author"/>
+                    <Button onMouseClicked="#onAddAuthorClick" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Add Author"/>
                 </HBox>
             </VBox>
         </Tab>

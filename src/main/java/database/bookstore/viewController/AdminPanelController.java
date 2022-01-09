@@ -1,6 +1,7 @@
 package database.bookstore.viewController;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 
 public class AdminPanelController {
@@ -24,9 +25,53 @@ public class AdminPanelController {
     private TextField authors;
     @FXML
     private TextField removeIsbn;
+    @FXML
+    private TextField OrderISBN;
+    @FXML
+    private TextField OrderNoCopies;
+    @FXML
+    private MenuButton confirmOrder;
+    @FXML
+    private TextField promoteUser;
+    @FXML
+    private TextField addPublisherName;
+    @FXML
+    private TextField addPublisherAddress;
+    @FXML
+    private TextField addPublisherPhone;
+    @FXML
+    private TextField addAuthorName;
+
 
     @FXML
     protected void onAddClick(){
 
     }
+    @FXML
+    protected void onRemoveClick(){
+
+    }
+
+    @FXML
+    protected void onAddOrderClick(){
+
+    }
+    @FXML
+    protected void onConfirmOrderClick(){
+
+    }
+    @FXML
+    protected void onPromoteUserClick(){
+
+    }
+
+    @FXML
+    protected void onAddPublisherClick(){
+
+    }
+    @FXML
+    protected void onAddAuthorClick(){
+
+    }
+
 }
