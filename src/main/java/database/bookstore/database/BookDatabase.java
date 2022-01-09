@@ -168,4 +168,9 @@ public class BookDatabase {
         return getBooks(q);
     }
 
+    public ArrayList<Book> fetchBooks() throws SQLException {
+        String q = "SELECT * FROM book";
+        return getBooks(q);
+    }
+
 }
