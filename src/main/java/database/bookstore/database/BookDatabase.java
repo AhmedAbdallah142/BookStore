@@ -153,4 +153,9 @@ public class BookDatabase {
         return true;
     }
 
+    public boolean addCategory(String category) throws SQLException {
+        dataBase.getStatement().execute("INSERT INTO Category VALUES" + "(" + "'" +category +"'" +  ");" );
+        return true;
+    }
+
 }
