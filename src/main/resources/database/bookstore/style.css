@@ -58,6 +58,8 @@
 .table-column {
     -fx-background-color:Black ;
     -fx-pref-height : 45px;
+    -fx-border-color: Yellow;
+    -fx-border-width: 0.25;
 }
 .date-picker {
     -fx-background-color:Transparent;
