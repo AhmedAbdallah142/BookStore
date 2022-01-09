@@ -17,6 +17,7 @@
     -fx-font-size: 18;
     -fx-border-color: Yellow;
     -fx-border-width: 0.25;
+    -fx-cursor: hand;
 }
 .user-name{
     -fx-fill:#e0e5de;
@@ -63,4 +64,10 @@
 }
 .date-picker {
     -fx-background-color:Transparent;
+}
+.sign{
+    -fx-font-size:14;
+}
+.image-view{
+   -fx-cursor: hand;
 }

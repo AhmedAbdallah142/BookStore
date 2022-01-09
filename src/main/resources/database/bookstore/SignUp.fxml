@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -14,10 +13,7 @@
       xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="database.bookstore.viewController.SignUpController">
     <HBox prefHeight="12.0" prefWidth="455.0">
-        <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-            <cursor>
-                <Cursor fx:constant="HAND"/>
-            </cursor>
+        <ImageView onMouseClicked="#onBackClick" fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../images/pngfind.com-return-icon-png-3339700.png"/>
         </ImageView>
     </HBox>

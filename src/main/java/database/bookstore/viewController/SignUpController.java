@@ -12,9 +12,9 @@ import java.io.IOException;
 
 public class SignUpController {
     @FXML
-    protected void onLogInClick(Event event) throws IOException {
+    protected void onBackClick(Event event) throws IOException {
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserLogIn.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LogIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Sign Up...!");
         stage.setScene(scene);

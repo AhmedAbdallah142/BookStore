@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -20,9 +19,6 @@
     </padding>
     <HBox prefHeight="12.0" prefWidth="455.0">
         <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-            <cursor>
-                <Cursor fx:constant="HAND"/>
-            </cursor>
             <Image url="@../../images/pngfind.com-return-icon-png-3339700.png"/>
         </ImageView>
     </HBox>
