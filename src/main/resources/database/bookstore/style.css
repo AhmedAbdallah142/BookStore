@@ -25,7 +25,7 @@
 }
 .label{
     -fx-font-family: "Stencil";
-    -fx-effect: dropshadow( one-pass-box , black , 10 , 0.4 , 2 , 0 );
+    /*-fx-effect: dropshadow( one-pass-box , black , 10 , 0.4 , 2 , 0 );*/
     -fx-font-size: 22;
     -fx-text-fill: radial-gradient(radius 180%, burlywood, derive(burlywood, -30%), derive(burlywood, 30%));
 }
@@ -55,10 +55,14 @@
 }
 .table-view {
     -fx-background-color:#e0e5de ;
+    -fx-font-size:15;
 }
 .table-column {
-    -fx-background-color:Black ;
+    /*-fx-background-color:Black;*/
     -fx-pref-height : 45px;
+    /*-fx-pref-width : 100px;*/
+    -fx-font-size: 18;
+    -fx-font-color: Black;
     -fx-border-color: Yellow;
     -fx-border-width: 0.25;
 }

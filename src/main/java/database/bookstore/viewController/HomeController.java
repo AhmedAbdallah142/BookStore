@@ -2,23 +2,66 @@ package database.bookstore.viewController;
 
 import database.bookstore.HelloApplication;
 import database.bookstore.database.BookDatabase;
+import database.bookstore.database.Database;
+import database.bookstore.entites.Book;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-public class HomeController{
+public class HomeController {
     @FXML
     private Text username;
     @FXML
     private TextField search;
+    @FXML
+    private TableView<Book> tableView;
+    @FXML
+    private TableColumn<Book,Integer> ISBN;
+    @FXML
+    private TableColumn<Book,String> Title;
+    @FXML
+    private TableColumn<Book,Integer> noOfCopies;
+    @FXML
+    private TableColumn<Book,Double> price;
+    @FXML
+    private TableColumn<Book,String> Publisher;
+    @FXML
+    private TableColumn<Book,String> Category;
+    @FXML
+    private TableColumn<Book,String> Authors;
+    @FXML
+    private TableColumn<Book,String> Year;
+//    @FXML
+//    private TableColumn<Book,Boolean> IsManager;
+
+
+    @FXML
+    public void initialize() throws SQLException {
+        BookDatabase bookDatabase = new BookDatabase();
+        ISBN.setCellValueFactory(new PropertyValueFactory("ISBN"));
+        Title.setCellValueFactory(new PropertyValueFactory("Title"));
+        price.setCellValueFactory(new PropertyValueFactory("Price"));
+        noOfCopies.setCellValueFactory(new PropertyValueFactory("Copies"));
+        Publisher.setCellValueFactory(new PropertyValueFactory("Publisher"));
+        Category.setCellValueFactory(new PropertyValueFactory("Category"));
+        Authors.setCellValueFactory(new PropertyValueFactory("authors"));
+        Year.setCellValueFactory(new PropertyValueFactory("Publication_year"));
+        tableView.getItems().addAll(bookDatabase.fetchBooks());
+    }
 
     @FXML
     protected void onCartClick(Event event) throws IOException {
@@ -29,7 +72,7 @@ public class HomeController{
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        ((Stage) ((Node)(event.getSource())).getScene().getWindow()).close();
+        ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
     }
 
     @FXML
@@ -41,7 +84,7 @@ public class HomeController{
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        ((Stage) ((Node)(event.getSource())).getScene().getWindow()).close();
+        ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
     }
 
     @FXML
@@ -53,16 +96,15 @@ public class HomeController{
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        ((Stage) ((Node)(event.getSource())).getScene().getWindow()).close();
+        ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
     }
 
     @FXML
-    protected void onSearchClick(){
-        if (search.getText().isEmpty()){
-            throw new RuntimeException("search is null");
-        }
-        BookDatabase bookDatabase = new BookDatabase();
+    protected void onSearchClick() {
         try {
+            if (search.getText().isEmpty())
+                throw new RuntimeException("search is null");
+            BookDatabase bookDatabase = new BookDatabase();
             bookDatabase.search(search.getText());
         } catch (SQLException e) {
             e.printStackTrace();
@@ -80,10 +122,10 @@ public class HomeController{
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        ((Stage) ((Node)(event.getSource())).getScene().getWindow()).close();
+        ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
     }
 
-    public void setUserName(String userName){
+    public void setUserName(String userName) {
         this.username.setText(userName);
     }
 }
