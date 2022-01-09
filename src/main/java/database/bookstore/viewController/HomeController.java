@@ -1,6 +1,7 @@
 package database.bookstore.viewController;
 
 import database.bookstore.HelloApplication;
+import database.bookstore.database.BookDatabase;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class HomeController{
     @FXML
@@ -56,6 +58,15 @@ public class HomeController{
 
     @FXML
     protected void onSearchClick(){
+        if (search.getText().isEmpty()){
+            throw new RuntimeException("search is null");
+        }
+        BookDatabase bookDatabase = new BookDatabase();
+        try {
+            bookDatabase.search(search.getText());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
