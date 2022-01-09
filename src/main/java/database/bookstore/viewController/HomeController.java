@@ -2,10 +2,7 @@ package database.bookstore.viewController;
 
 import database.bookstore.HelloApplication;
 import database.bookstore.database.BookDatabase;
-import database.bookstore.database.Database;
 import database.bookstore.entites.Book;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +17,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class HomeController {
     @FXML
@@ -45,21 +41,18 @@ public class HomeController {
     private TableColumn<Book,String> Authors;
     @FXML
     private TableColumn<Book,String> Year;
-//    @FXML
-//    private TableColumn<Book,Boolean> IsManager;
-
 
     @FXML
     public void initialize() throws SQLException {
         BookDatabase bookDatabase = new BookDatabase();
-        ISBN.setCellValueFactory(new PropertyValueFactory("ISBN"));
-        Title.setCellValueFactory(new PropertyValueFactory("Title"));
-        price.setCellValueFactory(new PropertyValueFactory("Price"));
-        noOfCopies.setCellValueFactory(new PropertyValueFactory("Copies"));
-        Publisher.setCellValueFactory(new PropertyValueFactory("Publisher"));
-        Category.setCellValueFactory(new PropertyValueFactory("Category"));
-        Authors.setCellValueFactory(new PropertyValueFactory("authors"));
-        Year.setCellValueFactory(new PropertyValueFactory("Publication_year"));
+        ISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
+        Title.setCellValueFactory(new PropertyValueFactory<>("Title"));
+        price.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        noOfCopies.setCellValueFactory(new PropertyValueFactory<>("Copies"));
+        Publisher.setCellValueFactory(new PropertyValueFactory<>("Publisher"));
+        Category.setCellValueFactory(new PropertyValueFactory<>("Category"));
+        Authors.setCellValueFactory(t->t.getValue().getAuthorsProperty());
+        Year.setCellValueFactory(new PropertyValueFactory<>("Publication_year"));
         tableView.getItems().addAll(bookDatabase.fetchBooks());
     }
 

@@ -77,7 +77,7 @@ public class BookDatabase {
         newAuthorsNames_updated += ";";
 
         // insert into Author table the values
-        dataBase.getStatement().execute("INSERT INTO author VALUES" + newAuthorsNames_updated);
+        dataBase.getStatement().execute("INSERT INTO author VALUES ('"+ newAuthorsNames_updated+"')");
 
         // update existing book
         dataBase.getStatement().execute("UPDATE bOOK SET "
