@@ -10,48 +10,54 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="516.0" prefWidth="618.0" spacing="15.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.SignUpController">
-   <HBox prefHeight="12.0" prefWidth="455.0">
-      <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <Image url="@../../images/pngfind.com-return-icon-png-3339700.png" />
-      </ImageView>
-   </HBox>
-   <HBox prefHeight="62.0" prefWidth="556.0" spacing="5.0">
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
-         <Label text="User Name" />
-         <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="user first name" />
-      </VBox>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
-         <Label text="Phone" />
-         <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="user first name" />
-      </VBox>
-   </HBox>
-   <Label text="Email" />
-   <TextField prefHeight="41.0" prefWidth="349.0" promptText="example@gmail.com" />
-   <HBox prefHeight="62.0" prefWidth="556.0" spacing="5.0">
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
-         <Label text="First Name" />
-         <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="user first name" />
-      </VBox>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
-         <Label text="Last Name" />
-         <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="user last name" />
-      </VBox>
-   </HBox>
-   <Label text="Address" />
-   <TextField prefHeight="41.0" prefWidth="349.0" promptText="Shipping Address" />
-   <HBox prefHeight="68.0" prefWidth="556.0" spacing="5.0">
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
-         <Label text="Password" />
-         <PasswordField promptText="Password" />
-      </VBox>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
-         <Label text="Confirm Password" />
-         <PasswordField promptText="confirm password" />
-      </VBox>
-   </HBox>
-   <Button prefHeight="39.0" prefWidth="125.0" text="Sign Up ..." underline="true" />
+<VBox alignment="CENTER" prefHeight="516.0" prefWidth="618.0" spacing="15.0" stylesheets="@style.css"
+      xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="database.bookstore.viewController.SignUpController">
+    <HBox prefHeight="12.0" prefWidth="455.0">
+        <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+            <Image url="@../../images/pngfind.com-return-icon-png-3339700.png"/>
+        </ImageView>
+    </HBox>
+    <HBox prefHeight="62.0" prefWidth="556.0" spacing="5.0">
+        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+            <Label text="User Name"/>
+            <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                       promptText="user first name"/>
+        </VBox>
+        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+            <Label text="Phone"/>
+            <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                       promptText="user first name"/>
+        </VBox>
+    </HBox>
+    <Label text="Email"/>
+    <TextField prefHeight="41.0" prefWidth="349.0" promptText="example@gmail.com"/>
+    <HBox prefHeight="62.0" prefWidth="556.0" spacing="5.0">
+        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+            <Label text="First Name"/>
+            <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                       promptText="user first name"/>
+        </VBox>
+        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+            <Label text="Last Name"/>
+            <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                       promptText="user last name"/>
+        </VBox>
+    </HBox>
+    <Label text="Address"/>
+    <TextField prefHeight="41.0" prefWidth="349.0" promptText="Shipping Address"/>
+    <HBox prefHeight="68.0" prefWidth="556.0" spacing="5.0">
+        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+            <Label text="Password"/>
+            <PasswordField promptText="Password"/>
+        </VBox>
+        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
+            <Label text="Confirm Password"/>
+            <PasswordField promptText="confirm password"/>
+        </VBox>
+    </HBox>
+    <Button prefHeight="39.0" prefWidth="125.0" text="Sign Up ..." underline="true"/>
 </VBox>

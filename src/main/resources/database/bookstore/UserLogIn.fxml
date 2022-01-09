@@ -10,9 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.PasswordField?>
-<VBox alignment="CENTER" prefHeight="463.0" prefWidth="384.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.LogInController">
+<VBox alignment="CENTER" prefHeight="463.0" prefWidth="384.0" spacing="20.0" stylesheets="@style.css"
+      xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="database.bookstore.viewController.LogInController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
     <ImageView fitHeight="85.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../../images/pngaaa.com-1025081.png"/>
@@ -22,9 +24,9 @@
     <Label text="Password"/>
     <PasswordField promptText="Password"/>
     <Button onAction="#onLogInClick" prefHeight="30.0" prefWidth="94.0" text="Log In ..." underline="true"/>
-    <Label onMouseClicked="#onSignUpClick"  text="Sign Up Instead-&gt;">
+    <Label onMouseClicked="#onSignUpClick" text="Sign Up Instead-&gt;">
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
     </Label>
 </VBox>

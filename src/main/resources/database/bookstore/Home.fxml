@@ -11,43 +11,44 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<HBox prefHeight="742.0" prefWidth="1151.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.Home">
+<HBox prefHeight="742.0" prefWidth="1151.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.Home">
     <VBox alignment="CENTER" prefHeight="370.0" prefWidth="172.0" spacing="200.0">
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../../images/pngegg.png" />
+                <Image url="@../../images/pngegg.png"/>
             </ImageView>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="user name" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="user name"/>
         </VBox>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
-            <Button mnemonicParsing="false" text="Cart" />
-            <Button mnemonicParsing="false" text="Profile" />
-            <Button mnemonicParsing="false" text="Reports" />
-            <Button mnemonicParsing="false" text="Admin Panel" />
+            <Button mnemonicParsing="false" text="Cart"/>
+            <Button mnemonicParsing="false" text="Profile"/>
+            <Button mnemonicParsing="false" text="Reports"/>
+            <Button mnemonicParsing="false" text="Admin Panel"/>
         </VBox>
     </VBox>
     <VBox prefHeight="712.0" prefWidth="942.0">
         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
         </padding>
         <HBox alignment="CENTER" prefHeight="72.0" prefWidth="921.0" spacing="50.0">
             <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
             </VBox.margin>
-            <TextField prefHeight="40.0" prefWidth="637.0" promptText="search word" />
-            <Button mnemonicParsing="false" text="Search" />
+            <TextField prefHeight="40.0" prefWidth="637.0" promptText="search word"/>
+            <Button mnemonicParsing="false" text="Search"/>
         </HBox>
         <TableView prefHeight="786.0" prefWidth="921.0">
             <columns>
-                <TableColumn text="isbn" />
-                <TableColumn prefWidth="84.0" text="title" />
-                <TableColumn prefWidth="132.0" text="No.Copies" />
-                <TableColumn prefWidth="100.0" text="Price" />
-                <TableColumn prefWidth="146.0" text="Publisher" />
-                <TableColumn prefWidth="119.0" text="Category" />
-                <TableColumn prefWidth="126.0" text="Authors" />
-                <TableColumn prefWidth="86.0" text="year" />
-            <TableColumn prefWidth="47.0" text="+" />
+                <TableColumn text="isbn"/>
+                <TableColumn prefWidth="84.0" text="title"/>
+                <TableColumn prefWidth="132.0" text="No.Copies"/>
+                <TableColumn prefWidth="100.0" text="Price"/>
+                <TableColumn prefWidth="146.0" text="Publisher"/>
+                <TableColumn prefWidth="119.0" text="Category"/>
+                <TableColumn prefWidth="126.0" text="Authors"/>
+                <TableColumn prefWidth="86.0" text="year"/>
+                <TableColumn prefWidth="47.0" text="+"/>
             </columns>
         </TableView>
     </VBox>
