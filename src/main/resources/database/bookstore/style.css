@@ -1,7 +1,16 @@
 .root{
     -fx-background-image: url("../../../../src/main/resources/images/background.jpg");
-    /*-fx-background-repeat: no-repeat;
-    -fx-background-size: 500 500;
-    -fx-background-position: center center;*/
     -fx-background-size: cover;
+}
+.text-field{
+    -fx-background-color : rgb(255,255,255,0.4);
+    -fx-font-size: 18 ;
+    -fx-text-fill: White;
+}
+.button{
+    -fx-background-color: #036ffc;
+    -fx-text-fill: White;
+}
+.label{
+    -fx-font-family: "Stencil";
 }

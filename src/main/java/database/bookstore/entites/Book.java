@@ -87,6 +87,6 @@ public class Book {
 	public void setAuthors(ArrayList<String> authors) {
 		this.authors = authors;
 	}
-	
-	
+
+
 }

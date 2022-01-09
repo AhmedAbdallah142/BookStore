@@ -1,8 +1,8 @@
 package database.bookstore.entites;
 
 public class Author {
-	private String Name;
-	private int ISBN;
+	String Name;
+	int ISBN;
 	public Author(String name, int iSBN) {
 		super();
 		Name = name;
