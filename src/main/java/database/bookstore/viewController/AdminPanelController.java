@@ -91,6 +91,7 @@ public class AdminPanelController {
         book.setThreshold(Integer.parseInt(threshold.getText()));
         book.setCopies(Integer.parseInt(noCopies.getText()));
         ArrayList<String> authors_list = new ArrayList<String>(List.of(authors.getText().split(",")));
+        book.setAuthors(authors_list);
 
         BookDatabase bookDatabase = new BookDatabase();
         try {
