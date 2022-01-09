@@ -34,13 +34,13 @@
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
                           prefWidth="825.0">
                         <Label text="ISBN"/>
-                        <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="addIsbn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                                    promptText="ISBN"/>
                     </VBox>
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
                           prefWidth="825.0">
                         <Label text="No of Copies"/>
-                        <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="noCopies" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                                    promptText="no.copies"/>
                     </VBox>
                 </HBox>
@@ -48,13 +48,13 @@
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
                           prefWidth="825.0">
                         <Label text="Publisher name"/>
-                        <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="publisherName" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                                    promptText="publisher name"/>
                     </VBox>
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
                           prefWidth="825.0">
                         <Label text="Title"/>
-                        <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="title" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                                    promptText="book title"/>
                     </VBox>
                 </HBox>
@@ -62,13 +62,13 @@
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
                           prefWidth="825.0">
                         <Label text="Publication year"/>
-                        <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="publicationYear" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                                    promptText="publication year"/>
                     </VBox>
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
                           prefWidth="825.0">
                         <Label text="Price"/>
-                        <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="price" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                                    promptText="price"/>
                     </VBox>
                 </HBox>
@@ -76,13 +76,13 @@
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
                           prefWidth="825.0">
                         <Label text="Category"/>
-                        <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="category" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                                    promptText="category"/>
                     </VBox>
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0"
                           prefWidth="825.0">
                         <Label text="Threshold"/>
-                        <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="threshold" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                                    promptText="threshold"/>
                     </VBox>
                 </HBox>
@@ -98,7 +98,7 @@
                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="67.0"
                           prefWidth="714.0">
                         <Label text="Book ISBN"/>
-                        <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                        <TextField fx:id="removeIsbn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                                    promptText="ISBN"/>
                     </VBox>
                     <Button minWidth="-Infinity" mnemonicParsing="false" text="Remove Book"/>
