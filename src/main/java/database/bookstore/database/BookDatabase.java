@@ -15,7 +15,7 @@ public class BookDatabase {
     }
 
     public Boolean insertBook(Book b) throws SQLException {
-    	dataBase.getStatement().execute("INSERT INTO Book VALUES"
+    	dataBase.getStatement().execute("INSERT INTO book VALUES"
                 + "( "
                 + b.getISBN() + ","
                 + "'" + b.getTitle() + "'" + ","
@@ -28,11 +28,11 @@ public class BookDatabase {
                 +");"
         );
         for (String authorName : b.getAuthors()){
-            dataBase.getStatement().execute("INSERT INTO Author VALUES"
+            dataBase.getStatement().execute("INSERT INTO author VALUES"
                     + "("
                     + "'" + authorName + "'" + ","
                     + b.getISBN()
-                    + "):"
+                    + ");"
             );
         }
         return true;
@@ -53,12 +53,12 @@ public class BookDatabase {
         newAuthorsNames += ")";
 
 
-        String deleteAuthors = "DELETE FROM Author WHERE ISBN = " + ISBN +
+        String deleteAuthors = "DELETE FROM author WHERE ISBN = " + ISBN +
                 " AND author_name NOT IN " + newAuthorsNames + " ;" ;
         dataBase.getStatement().execute(deleteAuthors);
 
         // get author name which is already exists
-        ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT author_name FROM Author WHERE ISBN = " + ISBN + ";" );
+        ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT author_name FROM author WHERE ISBN = " + ISBN + ";" );
         while (resultSet.next()){
             newAuthors.remove(resultSet.getString("author_name"));
         }
@@ -77,10 +77,10 @@ public class BookDatabase {
         newAuthorsNames_updated += ";";
 
         // insert into Author table the values
-        dataBase.getStatement().execute("INSERT INTO Author VALUES" + newAuthorsNames_updated);
+        dataBase.getStatement().execute("INSERT INTO author VALUES" + newAuthorsNames_updated);
 
         // update existing book
-        dataBase.getStatement().execute("UPDATE BOOK SET "
+        dataBase.getStatement().execute("UPDATE bOOK SET "
                 + "ISBN = " + newBook.getISBN() + ","
                 +"title = " + "'" + newBook.getTitle() + "'" + ","
                 +"publisher = " + "'" + newBook.getPublisher() + "'" + ","
@@ -109,14 +109,14 @@ public class BookDatabase {
      }
 
      public Book searchByTitle(String title) throws SQLException {
-        ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * FROM Book WHERE title = " + title + ";");
+        ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * FROM book WHERE title = " + title + ";");
         Book book = createBook(resultSet);
         resultSet.close();
         return book;
      }
 
      public Book searchByISBN(Integer ISBN) throws SQLException {
-         ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * FROM Book WHERE ISBN = " + ISBN + ";");
+         ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * FROM book WHERE ISBN = " + ISBN + ";");
          Book book = createBook(resultSet);
          resultSet.close();
          return book;
@@ -165,6 +165,11 @@ public class BookDatabase {
                 +"OR publisher LIKE %" + key + "%" ;
         /*ResultSet resultSet = dataBase.getStatement().executeQuery(q);
          */
+        return getBooks(q);
+    }
+
+    public ArrayList<Book> fetchBooks() throws SQLException {
+        String q = "SELECT * FROM book";
         return getBooks(q);
     }
 
