@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox prefHeight="593.0" prefWidth="668.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.AdminPanel">
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.AdminPanelController">
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
     </padding>
@@ -87,9 +87,9 @@
                     </VBox>
                 </HBox>
                 <Label text="Author name(s)"/>
-                <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                <TextField fx:id="authors" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                            promptText="first author , second author "/>
-                <Button mnemonicParsing="false" text="ADD">
+                <Button onMouseClicked="#onAddClick" mnemonicParsing="false" text="ADD">
                     <VBox.margin>
                         <Insets top="10.0"/>
                     </VBox.margin>

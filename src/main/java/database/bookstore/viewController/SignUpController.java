@@ -22,4 +22,16 @@ public class SignUpController {
         stage.show();
         ((Stage) ((Node)(event.getSource())).getScene().getWindow()).close();
     }
+
+    @FXML
+    protected void onSignUpClick(Event event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("BookStore ...!");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+        ((Stage) ((Node)(event.getSource())).getScene().getWindow()).close();
+    }
 }

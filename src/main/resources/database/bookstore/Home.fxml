@@ -12,19 +12,18 @@
 <?import javafx.scene.text.Text?>
 
 <HBox prefHeight="742.0" prefWidth="1151.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.Home">
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.HomeController">
     <VBox alignment="CENTER" prefHeight="370.0" prefWidth="172.0" spacing="200.0">
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView onMouseClicked="#onProfileClick" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@../../images/pngegg.png"/>
             </ImageView>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="user name"/>
+            <Text fx:id="username" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="user name"/>
         </VBox>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
-            <Button mnemonicParsing="false" text="Cart"/>
-            <Button mnemonicParsing="false" text="Profile"/>
-            <Button mnemonicParsing="false" text="Reports"/>
-            <Button mnemonicParsing="false" text="Admin Panel"/>
+            <Button onMouseClicked="#onCartClick" mnemonicParsing="false" text="Cart"/>
+            <Button onMouseClicked="#onReportsClick" mnemonicParsing="false" text="Reports"/>
+            <Button onMouseClicked="#onAdminClick" mnemonicParsing="false" text="Admin Panel"/>
         </VBox>
     </VBox>
     <VBox prefHeight="712.0" prefWidth="942.0">
@@ -35,7 +34,7 @@
             <VBox.margin>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
             </VBox.margin>
-            <TextField prefHeight="40.0" prefWidth="637.0" promptText="search word"/>
+            <TextField fx:id="search" prefHeight="40.0" prefWidth="637.0" promptText="search word"/>
             <Button mnemonicParsing="false" text="Search"/>
         </HBox>
         <TableView prefHeight="786.0" prefWidth="921.0">

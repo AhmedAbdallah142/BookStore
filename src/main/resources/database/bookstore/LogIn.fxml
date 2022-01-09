@@ -18,9 +18,9 @@
         <Image url="@../../images/pngaaa.com-1025081.png" />
     </ImageView>
     <Label text="Email"/>
-    <TextField promptText="example@gmail.com" />
+    <TextField fx:id="email" promptText="example@gmail.com" />
     <Label text="Password" />
-    <PasswordField promptText="Password" />
+    <PasswordField fx:id="password" promptText="Password" />
     <Button onAction="#onLogInClick" prefHeight="30.0" prefWidth="94.0" text="Log In ..." underline="true" />
     <Label onMouseClicked="#onSignUpClick" styleClass="sign" text="Sign Up Instead-&gt;">
         <cursor>
