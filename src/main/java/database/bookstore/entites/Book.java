@@ -1,17 +1,22 @@
 package database.bookstore.entites;
 
+import java.util.ArrayList;
+
 public class Book {
-	int ISBN;
-	String Title;
-	String Publisher;
-	double Price;
-	String Category;
-	int Copies;
-	int Threshold;
-	String Publication_year;
-	
+	private int ISBN;
+	private String Title;
+	private String Publisher;
+	private String Publication_year;
+	private double Price;
+	private String Category;
+	private int Copies;
+	private int Threshold;
+	private ArrayList<String> authors;
+
+
+
 	public Book(int iSBN, String title, String publisher, double price, String category, int copies, int threshold,
-			String publication_year) {
+				String publication_year) {
 		super();
 		ISBN = iSBN;
 		Title = title;
@@ -25,18 +30,23 @@ public class Book {
 	public int getISBN() {
 		return ISBN;
 	}
+
 	public void setISBN(int iSBN) {
 		ISBN = iSBN;
 	}
+
 	public String getTitle() {
 		return Title;
 	}
+
 	public void setTitle(String title) {
 		Title = title;
 	}
+
 	public String getPublisher() {
 		return Publisher;
 	}
+
 	public void setPublisher(String publisher) {
 		Publisher = publisher;
 	}
@@ -69,6 +79,13 @@ public class Book {
 	}
 	public void setPublication_year(String publication_year) {
 		Publication_year = publication_year;
+	}
+	public ArrayList<String> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(ArrayList<String> authors) {
+		this.authors = authors;
 	}
 	
 	

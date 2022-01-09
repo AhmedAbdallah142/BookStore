@@ -1,6 +1,6 @@
 package database.bookstore.entites;
 
-public class Customer {
+public class User {
 //	New customers are able to sign up for a new customer account by providing the necessary information:
 //		user name, password, last name, first name, e-mail address, phone number, and shipping address.
 
@@ -11,7 +11,8 @@ public class Customer {
 	String email;
 	String phone_number;
 	String address;
-	public Customer(String user_name, String password, String first_name, String last_name, String email,
+	boolean is_manager;
+	public User(String user_name, String password, String first_name, String last_name, String email,
 			String phone_number, String address) {
 		super();
 		this.user_name = user_name;
@@ -21,6 +22,13 @@ public class Customer {
 		this.email = email;
 		this.phone_number = phone_number;
 		this.address = address;
+		this.is_manager = false;
+	}
+	public boolean isIs_manager() {
+		return is_manager;
+	}
+	public void setIs_manager(boolean is_manager) {
+		this.is_manager = is_manager;
 	}
 	public String getUser_name() {
 		return user_name;

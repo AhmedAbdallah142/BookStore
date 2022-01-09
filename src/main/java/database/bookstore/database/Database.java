@@ -21,12 +21,14 @@ public class Database {
 
     private void connect() {
         try {
-//            Class.forName("com.mysql.jdbc.Driver");
+         Class.forName("com.mysql.jdbc.Driver");
            // con = DriverManager.getConnection("jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11462667", "sql11462667", "UccaRWmjdb");
          con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bookStore", "DB", "12345");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
 //            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Failed To connect to database\n");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
