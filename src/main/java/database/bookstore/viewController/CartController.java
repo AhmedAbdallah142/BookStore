@@ -1,4 +1,4 @@
 package database.bookstore.viewController;
 
-public class Cart {
+public class CartController {
 }
