@@ -91,6 +91,6 @@ public class UserDatabase {
 	    }
 	    
 	    public void addAuthor(String author) throws SQLException {
-	    	dataBase.getStatement().execute("INSERT INTO Author(author_name) VALUES ('"+author+"')");
+	    	dataBase.getStatement().execute("INSERT INTO AuthorName VALUES ('"+author+"')");
 	    }
 }
