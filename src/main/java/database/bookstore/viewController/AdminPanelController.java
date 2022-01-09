@@ -134,6 +134,15 @@ public class AdminPanelController {
 
     @FXML
     protected void onAddCategoryClick(){
+        if (addCategoryName.getText().isEmpty()){
+            throw new RuntimeException("category is null");
+        }
+        BookDatabase bookDatabase = new BookDatabase();
+        try {
+            bookDatabase.addCategory(String.valueOf(addCategoryName));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
