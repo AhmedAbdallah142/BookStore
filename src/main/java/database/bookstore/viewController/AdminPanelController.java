@@ -47,7 +47,8 @@ public class AdminPanelController {
     private TextField addPublisherPhone;
     @FXML
     private TextField addAuthorName;
-
+    @FXML
+    public TextField addCategoryName;
 
     @FXML
     protected void onAddClick(){
@@ -93,6 +94,11 @@ public class AdminPanelController {
     }
     @FXML
     protected void onAddAuthorClick(){
+
+    }
+
+    @FXML
+    protected void onAddCategoryClick(){
 
     }
 
