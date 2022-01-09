@@ -154,8 +154,18 @@ public class BookDatabase {
     }
 
     public boolean addCategory(String category) throws SQLException {
-        dataBase.getStatement().execute("INSERT INTO Category VALUES" + "(" + "'" +category +"'" +  ");" );
+        dataBase.getStatement().execute("INSERT INTO category VALUES" + "(" + "'" +category +"'" +  ");" );
         return true;
+    }
+
+    public ArrayList<Book> search(String key) throws SQLException {
+        String q = "SELECT * FROM Book JOIN Author WHERE Category LIKE %" + key + "% OR ISBN LIKE %" + key  + "%"
+                +"OR title LIKE %" + key + "%"
+                +"OR author_name LIKE %" + key + "%"
+                +"OR publisher LIKE %" + key + "%" ;
+        /*ResultSet resultSet = dataBase.getStatement().executeQuery(q);
+         */
+        return getBooks(q);
     }
 
 }
