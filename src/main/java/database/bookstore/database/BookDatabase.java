@@ -143,4 +143,9 @@ public class BookDatabase {
         return getBooks(q);
     }
 
+    public ArrayList<Book> searchByCategory (String category) throws SQLException {
+        String q = "SELECT * FROM Book WHERE category = " + "'" + category + "'" + ";";
+        return getBooks(q);
+    }
+
 }
