@@ -148,4 +148,9 @@ public class BookDatabase {
         return getBooks(q);
     }
 
+    public boolean removeBook(Integer ISBN) throws SQLException {
+        dataBase.getStatement().execute("DELETE FROM Book WHERE ISBN = " + ISBN);
+        return true;
+    }
+
 }
