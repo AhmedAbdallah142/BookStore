@@ -1,5 +1,7 @@
 package database.bookstore.entites;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import java.util.ArrayList;
 
 public class Book {
@@ -92,6 +94,12 @@ public class Book {
 	public void setAuthors(ArrayList<String> authors) {
 		this.authors = authors;
 	}
+	
+	public StringProperty getAuthorsProperty(){
+        String concatenation = "";
+        for (String a : this.authors) concatenation = concatenation.concat(a.concat(" ,"));
+        return new SimpleStringProperty(concatenation);
+    }
 
 
 }
