@@ -19,39 +19,39 @@
     <HBox prefHeight="62.0" prefWidth="556.0" spacing="5.0">
         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
             <Label text="User Name"/>
-            <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+            <TextField fx:id="user_name" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                        promptText="user first name"/>
         </VBox>
         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
             <Label text="Phone"/>
-            <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+            <TextField fx:id="phone" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                        promptText="user first name"/>
         </VBox>
     </HBox>
     <Label text="Email"/>
-    <TextField prefHeight="41.0" prefWidth="349.0" promptText="example@gmail.com"/>
+    <TextField fx:id="email" prefHeight="41.0" prefWidth="349.0" promptText="example@gmail.com"/>
     <HBox prefHeight="62.0" prefWidth="556.0" spacing="5.0">
         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
             <Label text="First Name"/>
-            <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+            <TextField fx:id="first_name" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                        promptText="user first name"/>
         </VBox>
         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
             <Label text="Last Name"/>
-            <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+            <TextField fx:id="last_name" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                        promptText="user last name"/>
         </VBox>
     </HBox>
     <Label text="Address"/>
-    <TextField prefHeight="41.0" prefWidth="349.0" promptText="Shipping Address"/>
+    <TextField fx:id="address" prefHeight="41.0" prefWidth="349.0" promptText="Shipping Address"/>
     <HBox prefHeight="68.0" prefWidth="556.0" spacing="5.0">
         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
             <Label text="Password"/>
-            <PasswordField promptText="Password"/>
+            <PasswordField  fx:id="password" promptText="Password"/>
         </VBox>
         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
             <Label text="Confirm Password"/>
-            <PasswordField promptText="confirm password"/>
+            <PasswordField fx:id="confirm_password" promptText="confirm password"/>
         </VBox>
     </HBox>
     <Button onMouseClicked="#onSignUpClick" prefHeight="39.0" prefWidth="125.0" text="Sign Up ..." underline="true"/>
