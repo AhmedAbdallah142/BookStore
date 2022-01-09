@@ -11,43 +11,41 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<HBox prefHeight="742.0" prefWidth="1151.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.HomeController">
+<HBox prefHeight="742.0" prefWidth="1151.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.HomeController">
     <VBox alignment="CENTER" prefHeight="370.0" prefWidth="172.0" spacing="200.0">
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-            <ImageView onMouseClicked="#onProfileClick" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../../images/pngegg.png"/>
+            <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#onProfileClick" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../images/pngegg.png" />
             </ImageView>
-            <Text fx:id="username" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="user name"/>
+            <Text fx:id="username" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="user name" />
         </VBox>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
-            <Button onMouseClicked="#onCartClick" mnemonicParsing="false" text="Cart"/>
-            <Button onMouseClicked="#onReportsClick" mnemonicParsing="false" text="Reports"/>
-            <Button onMouseClicked="#onAdminClick" mnemonicParsing="false" text="Admin Panel"/>
+            <Button mnemonicParsing="false" onMouseClicked="#onCartClick" text="Cart" />
+            <Button mnemonicParsing="false" onMouseClicked="#onReportsClick" text="Reports" />
+            <Button mnemonicParsing="false" onMouseClicked="#onAdminClick" text="Admin Panel" />
         </VBox>
     </VBox>
     <VBox prefHeight="712.0" prefWidth="942.0">
         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
         </padding>
         <HBox alignment="CENTER" prefHeight="72.0" prefWidth="921.0" spacing="50.0">
             <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </VBox.margin>
-            <TextField fx:id="search" prefHeight="40.0" prefWidth="637.0" promptText="search word"/>
-            <Button onMouseClicked="#onSearchClick" mnemonicParsing="false" text="Search"/>
+            <TextField fx:id="search" prefHeight="40.0" prefWidth="637.0" promptText="search word" />
+            <Button mnemonicParsing="false" onMouseClicked="#onSearchClick" text="Search" />
         </HBox>
         <TableView fx:id="tableView" prefHeight="786.0" prefWidth="921.0">
             <columns>
-                <TableColumn fx:id="ISBN" text="isbn"/>
-                <TableColumn fx:id="Title" prefWidth="84.0" text="title"/>
-                <TableColumn fx:id="noOfCopies" prefWidth="132.0" text="No.Copies"/>
-                <TableColumn fx:id="price" prefWidth="100.0" text="Price"/>
-                <TableColumn fx:id="Publisher" prefWidth="146.0" text="Publisher"/>
-                <TableColumn fx:id="Category" prefWidth="119.0" text="Category"/>
-                <TableColumn fx:id="Authors" prefWidth="126.0" text="Authors"/>
-                <TableColumn fx:id="Year" prefWidth="86.0" text="year"/>
-                <TableColumn fx:id="IsManager" prefWidth="47.0" text="+"/>
+                <TableColumn fx:id="ISBN" minWidth="-1.0" resizable="false" text="isbn" />
+                <TableColumn fx:id="Title" minWidth="-1.0" prefWidth="84.0" text="title" />
+                <TableColumn fx:id="noOfCopies" minWidth="-1.0" prefWidth="132.0" resizable="false" text="No.Copies" />
+                <TableColumn fx:id="price" minWidth="-1.0" prefWidth="100.0" resizable="false" text="Price" />
+                <TableColumn fx:id="Publisher" minWidth="-1.0" prefWidth="146.0" resizable="false" text="Publisher" />
+                <TableColumn fx:id="Category" minWidth="-1.0" prefWidth="117.0" text="Category" />
+                <TableColumn fx:id="Authors" minWidth="-1.0" prefWidth="199.0" resizable="false" text="Authors" />
+                <TableColumn fx:id="Year" minWidth="-1.0" prefWidth="63.0" resizable="false" text="year" />
             </columns>
         </TableView>
     </VBox>
