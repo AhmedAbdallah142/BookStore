@@ -26,7 +26,7 @@ public class Database {
          con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bookStore", "DB", "12345");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-//            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Failed To connect to database\n");
+     //       throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Failed To connect to database\n");
         }
     }
 
