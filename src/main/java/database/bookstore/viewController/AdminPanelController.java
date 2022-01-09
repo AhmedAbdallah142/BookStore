@@ -51,7 +51,34 @@ public class AdminPanelController {
     public TextField addCategoryName;
 
     @FXML
-    protected void onAddClick(){
+    protected void onAddClick() throws Exception {
+        if (addIsbn.getText().isEmpty()){
+            throw new RuntimeException("ISBN is null");
+        }
+        if (publisherName.getText().isEmpty()){
+            throw new RuntimeException("publisher name is null");
+        }
+        if (title.getText().isEmpty()){
+            throw new RuntimeException("title is null");
+        }
+        if (publicationYear.getText().isEmpty()){
+            throw new RuntimeException("publication year is null");
+        }
+        if (price.getText().isEmpty()){
+            throw new RuntimeException("price is null");
+        }
+        if (category.getText().isEmpty()){
+            throw new RuntimeException("category is null");
+        }
+        if (threshold.getText().isEmpty()){
+            throw new RuntimeException("threshold is null");
+        }
+        if (noCopies.getText().isEmpty()){
+            throw new RuntimeException("copies is null");
+        }
+        if (authors.getText().isEmpty()){
+            throw new RuntimeException("authors is null");
+        }
         Book book = new Book();
         book.setISBN(Integer.parseInt(String.valueOf(addIsbn)));
         book.setPublisher(String.valueOf(publisherName));
@@ -72,6 +99,9 @@ public class AdminPanelController {
     }
     @FXML
     protected void onRemoveClick(){
+        if (removeIsbn.getText().isEmpty()){
+            throw new RuntimeException("remove ISBN is null");
+        }
         BookDatabase bookDatabase = new BookDatabase();
         try {
             bookDatabase.removeBook(Integer.valueOf(String.valueOf(removeIsbn)));
