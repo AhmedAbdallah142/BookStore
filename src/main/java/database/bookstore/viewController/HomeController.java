@@ -44,6 +44,7 @@ public class HomeController {
 
     @FXML
     public void initialize() throws SQLException {
+        username.setText(ControllerRepo.getUser().getUser_name());
         BookDatabase bookDatabase = new BookDatabase();
         ISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
         Title.setCellValueFactory(new PropertyValueFactory<>("Title"));
@@ -51,7 +52,7 @@ public class HomeController {
         noOfCopies.setCellValueFactory(new PropertyValueFactory<>("Copies"));
         Publisher.setCellValueFactory(new PropertyValueFactory<>("Publisher"));
         Category.setCellValueFactory(new PropertyValueFactory<>("Category"));
-        Authors.setCellValueFactory(t->t.getValue().getAuthorsProperty());
+//        Authors.setCellValueFactory(t->t.getValue().getAuthorsProperty());
         Year.setCellValueFactory(new PropertyValueFactory<>("Publication_year"));
         tableView.getItems().addAll(bookDatabase.fetchBooks());
     }
@@ -118,7 +119,7 @@ public class HomeController {
         ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
     }
 
-    public void setUserName(String userName) {
-        this.username.setText(userName);
-    }
+//    public void setUserName(String userName) {
+//        this.username.setText(userName);
+//    }
 }
