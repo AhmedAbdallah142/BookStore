@@ -8,6 +8,11 @@ public class Order {
 		ISBN = iSBN;
 		this.quantity = quantity;
 	}
+
+	public Order() {
+
+	}
+
 	public int getISBN() {
 		return ISBN;
 	}
