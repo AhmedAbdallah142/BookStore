@@ -36,6 +36,21 @@
             <TextField fx:id="search" prefHeight="40.0" prefWidth="637.0" promptText="search word" />
             <Button mnemonicParsing="false" onMouseClicked="#onSearchClick" text="Search" />
         </HBox>
+      <HBox alignment="CENTER" prefHeight="72.0" prefWidth="921.0" spacing="5.0">
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/right-arrow.png" />
+               </image>
+            </ImageView>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+            <ImageView fitHeight="28.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/left-arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
         <TableView fx:id="tableView" prefHeight="786.0" prefWidth="921.0">
             <columns>
                 <TableColumn fx:id="ISBN" minWidth="-1.0" resizable="false" text="isbn" />
