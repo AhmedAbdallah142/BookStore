@@ -71,13 +71,12 @@ public class SignUpController {
             	 user.setIs_manager(us.isIs_manager());
             	u.editUser(user);
             }
-            createSignUpStage(user_name_string);
+            ControllerRepo.createHomeStage(user_name_string);
             ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
             ControllerRepo.setUser(user);
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
-            e.printStackTrace();
 //            if (alert.getResult() == ButtonType.YES) {
 //                //do stuff
 //            }
@@ -101,18 +100,6 @@ public class SignUpController {
             throw new RuntimeException("Password Is Empty");
         if (!confirm_password.getText().equalsIgnoreCase(password.getText()))
             throw new RuntimeException("Confirm Password doesn't Match Password");
-    }
-
-    private void createSignUpStage(String userName) throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        HomeController h = fxmlLoader.getController();
-        h.setUserName(userName);
-        stage.setTitle("BookStore ...!");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
     }
 
     public void ChangeMood(boolean isSignUpMode){

@@ -20,7 +20,7 @@
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
     <HBox prefHeight="26.0" prefWidth="636.0">
-        <ImageView fitHeight="50.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView onMouseClicked="#onBackClick" fitHeight="50.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../images/pngfind.com-return-icon-png-3339700.png" />
         </ImageView>
     </HBox>
@@ -69,7 +69,7 @@
                 </HBox>
                 <Label text="Author name(s)" />
                 <TextField fx:id="authors" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="first author , second author " />
-                <Button mnemonicParsing="false" onMouseClicked="#onAddClick" text="ADD">
+                <Button fx:id="AddButton" mnemonicParsing="false" onMouseClicked="#onAddClick" text="ADD">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>

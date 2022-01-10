@@ -55,14 +55,18 @@
 }
 .table-view {
     -fx-background-color:#e0e5de ;
-    -fx-font-size:15;
 }
+
+.table-view .label{
+    -fx-font-size:16;
+}
+
 .table-column {
     /*-fx-background-color:Black;*/
     -fx-pref-height : 45px;
     /*-fx-pref-width : 100px;*/
     -fx-alignment: CENTER;
-    -fx-font-size: 18;
+    -fx-font-size: 14;
     -fx-font-color: Black;
     -fx-border-color: Yellow;
     -fx-border-width: 0.25;

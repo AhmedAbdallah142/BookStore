@@ -1,6 +1,12 @@
 package database.bookstore.viewController;
 
+import database.bookstore.HelloApplication;
 import database.bookstore.entites.User;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class ControllerRepo {
     private static User CurrentUser;
@@ -10,22 +16,15 @@ public class ControllerRepo {
     public static void setUser(User user) {
         CurrentUser = user;
     }
-//    private User CurrentUser;
-//    private static ControllerRepo instance = null;
-//    private ControllerRepo(){
-//
-//    }
-//    public static ControllerRepo getInstance() {
-//        if (instance == null)
-//            instance = new ControllerRepo();
-//        return instance;
-//    }
-//
-//    public User getUser() {
-//        return CurrentUser;
-//    }
-//
-//    public void setUser(User user) {
-//        CurrentUser = user;
-//    }
+    public static void createHomeStage(String userName) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        HomeController h = fxmlLoader.getController();
+        h.setUserName(userName);
+        stage.setTitle("BookStore ...!");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
 }

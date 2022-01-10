@@ -1,4 +1,4 @@
 package database.bookstore.viewController;
 
-public class Reports {
+public class ReportsController {
 }
