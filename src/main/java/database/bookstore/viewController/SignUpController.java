@@ -109,8 +109,19 @@ public class SignUpController {
     public void ChangeMood(boolean isSignUpMode){
         if (isSignUpMode)
             clickButton.setText("Sign Up..");
-        else
+        else {
             clickButton.setText("Modify");
+            User u = ControllerRepo.getUser();
+            email.setText(u.getEmail());
+            email.setEditable(false);
+            user_name.setText(u.getUser_name());
+            phone.setText(u.getPhone_number());
+            address.setText(u.getAddress());
+            first_name.setText(u.getFirst_name());
+            last_name.setText(u.getLast_name());
+            password.setText(u.getPassword());
+            confirm_password.setText(u.getPassword());
+        }
         this.isSignUpMode = isSignUpMode;
     }
 }

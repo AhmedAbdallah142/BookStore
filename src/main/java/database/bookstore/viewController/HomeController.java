@@ -26,21 +26,21 @@ public class HomeController {
     @FXML
     private TableView<Book> tableView;
     @FXML
-    private TableColumn<Book,Integer> ISBN;
+    private TableColumn<Book, Integer> ISBN;
     @FXML
-    private TableColumn<Book,String> Title;
+    private TableColumn<Book, String> Title;
     @FXML
-    private TableColumn<Book,Integer> noOfCopies;
+    private TableColumn<Book, Integer> noOfCopies;
     @FXML
-    private TableColumn<Book,Double> price;
+    private TableColumn<Book, Double> price;
     @FXML
-    private TableColumn<Book,String> Publisher;
+    private TableColumn<Book, String> Publisher;
     @FXML
-    private TableColumn<Book,String> Category;
+    private TableColumn<Book, String> Category;
     @FXML
-    private TableColumn<Book,String> Authors;
+    private TableColumn<Book, String> Authors;
     @FXML
-    private TableColumn<Book,String> Year;
+    private TableColumn<Book, String> Year;
 
     @FXML
     public void initialize() throws SQLException {
@@ -51,7 +51,7 @@ public class HomeController {
         noOfCopies.setCellValueFactory(new PropertyValueFactory<>("Copies"));
         Publisher.setCellValueFactory(new PropertyValueFactory<>("Publisher"));
         Category.setCellValueFactory(new PropertyValueFactory<>("Category"));
-        Authors.setCellValueFactory(t->t.getValue().getAuthorsProperty());
+        Authors.setCellValueFactory(t -> t.getValue().getAuthorsProperty());
         Year.setCellValueFactory(new PropertyValueFactory<>("Publication_year"));
         tableView.getItems().addAll(bookDatabase.fetchBooks());
     }
@@ -83,15 +83,20 @@ public class HomeController {
     }
 
     @FXML
-    protected void onAdminClick(Event event) throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminPanel.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("AdminPanel ...!");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
-        ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
+    protected void onAdminClick(Event event) {
+        try {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminPanel.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle("AdminPanel ...!");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+            ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -102,7 +107,7 @@ public class HomeController {
             BookDatabase bookDatabase = new BookDatabase();
             ObservableList<Book> data = FXCollections.observableList(bookDatabase.search(search.getText()));
             tableView.setItems(data);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
         }
@@ -110,15 +115,20 @@ public class HomeController {
 
 
     @FXML
-    protected void onReportsClick(Event event) throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Reports.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Reports ...!");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
-        ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
+    protected void onReportsClick(Event event) {
+        try {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Reports.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle("Reports ...!");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+            ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
     public void setUserName(String userName) {
