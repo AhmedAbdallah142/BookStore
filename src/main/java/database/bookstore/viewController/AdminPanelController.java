@@ -116,7 +116,7 @@ public class AdminPanelController {
     }
 
     @FXML
-    protected void onAddOrderClick(){
+    protected void onAddOrderClick() throws SQLException {
         if (OrderISBN.getText().isEmpty()){
             throw new RuntimeException("order ISBN is null");
         }
@@ -130,7 +130,7 @@ public class AdminPanelController {
         orderDatabase.place_order(order);
     }
     @FXML
-    protected void onConfirmOrderClick(){
+    protected void onConfirmOrderClick() throws SQLException {
         if (confirmOrder.getText().isEmpty()){
             throw new RuntimeException("confirm order is null");
         }

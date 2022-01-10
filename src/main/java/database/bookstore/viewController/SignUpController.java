@@ -62,7 +62,7 @@ public class SignUpController {
                     last_name_string, email_string, phone_string, address_string);
             UserDatabase u = new UserDatabase();
             u.SignUp(user);
-            createSignUpStage();
+            createSignUpStage(user_name_string);
             ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
             ControllerRepo.setUser(user);
         } catch (Exception e) {
@@ -73,6 +73,7 @@ public class SignUpController {
 //            }
         }
     }
+
     private void validateSignUp() {
         if (email.getText().isEmpty())
             throw new RuntimeException("User Email Is Empty");
@@ -92,7 +93,7 @@ public class SignUpController {
             throw new RuntimeException("Confirm Password doesn't Match Password");
     }
 
-    private void createSignUpStage() throws IOException {
+    private void createSignUpStage(String userName) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

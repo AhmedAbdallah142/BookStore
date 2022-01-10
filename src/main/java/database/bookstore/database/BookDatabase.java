@@ -166,10 +166,10 @@ public class BookDatabase {
     }
 
     public ArrayList<Book> search(String key) throws SQLException {
-        String q = "SELECT * FROM Book JOIN Author WHERE Category LIKE %" + key + "% OR ISBN LIKE %" + key  + "%"
-                +"OR title LIKE %" + key + "%"
-                +"OR author_name LIKE %" + key + "%"
-                +"OR publisher LIKE %" + key + "%" ;
+        String q = "SELECT * FROM Book JOIN Author WHERE Category LIKE '%" + key + "%' OR ISBN LIKE '%" + key  + "%'"
+                +"OR title LIKE '%" + key + "%'"
+                +"OR author_name LIKE '%" + key + "%'"
+                +"OR publisher LIKE '%" + key + "%'" ;
         /*ResultSet resultSet = dataBase.getStatement().executeQuery(q);
          */
         return getBooks(q);
