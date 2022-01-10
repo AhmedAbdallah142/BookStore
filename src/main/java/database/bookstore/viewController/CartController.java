@@ -91,6 +91,10 @@ public class CartController {
             alert.showAndWait();
             CardId.setText("");
             CCV.setText("");
+            ControllerRepo.ResetCart();
+            ObservableList<CartItem> data = FXCollections.observableArrayList(ControllerRepo.getUserCart());
+            cartTable.setItems(data);
+            cartTable.refresh();
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();

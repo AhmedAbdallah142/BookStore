@@ -94,7 +94,6 @@ public class AdminPanelController {
         orderTableOrderId.setCellValueFactory(new PropertyValueFactory<>("ID"));
         orderTableISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
         orderTableNCopies.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-
         userTableEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         userTableName.setCellValueFactory(new PropertyValueFactory<>("user_name"));
         userTablePhone.setCellValueFactory(new PropertyValueFactory<>("phone_number"));
@@ -172,6 +171,7 @@ public class AdminPanelController {
                 throw new RuntimeException("remove ISBN is null");
             BookDatabase bookDatabase = new BookDatabase();
             bookDatabase.removeBook(Integer.valueOf(removeIsbn.getText()));
+            removeIsbn.setText("");
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
