@@ -17,7 +17,7 @@ public class User {
 		super();
 	}
 	public User(String user_name, String password, String first_name, String last_name, String email,
-			String phone_number, String address) {
+			String phone_number, String address,boolean m) {
 		super();
 		this.user_name = user_name;
 		this.password = password;
@@ -26,7 +26,7 @@ public class User {
 		this.email = email;
 		this.phone_number = phone_number;
 		this.address = address;
-		this.is_manager = false;
+		this.is_manager = m;
 	}
 	public boolean isIs_manager() {
 		return is_manager;
