@@ -33,7 +33,7 @@ public class CartDatabase {
                 dataBase.getStatement().execute("UPDATE Book SET copies = '"+q+"' WHERE ISBN = '"+item.getISBN()+"';");
                 // add in sale
                 dataBase.getStatement().execute("INSERT INTO Sale(user_email,ISBN,copies,date) VALUES ('"+email+"','"+item.getISBN()+
-                		"','"+quantity+"','"+d+"');");
+                		"','"+item.getQuantity()+"','"+d+"');");
             }
             dataBase.getStatement().execute("COMMIT;");
         }catch (SQLException e) {
