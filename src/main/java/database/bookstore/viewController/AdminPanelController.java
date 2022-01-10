@@ -1,14 +1,21 @@
 package database.bookstore.viewController;
 
+import database.bookstore.HelloApplication;
 import database.bookstore.database.BookDatabase;
 import database.bookstore.database.OrderDatabase;
 import database.bookstore.database.UserDatabase;
 import database.bookstore.entites.Book;
 import database.bookstore.entites.Order;
 import database.bookstore.entites.Publisher;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +63,12 @@ public class AdminPanelController {
     private Button AddButton;
 
     private boolean isAddMood = true;
+
+    @FXML
+    protected void onBackClick(Event event) throws IOException {
+        ControllerRepo.createHomeStage(ControllerRepo.getUser().getUser_name());
+        ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
+    }
 
     @FXML
     protected void onAddClick() {

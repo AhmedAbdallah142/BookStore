@@ -44,16 +44,8 @@ public class LogInController {
             UserDatabase u = new UserDatabase();
             if (!u.LogIn(email_string, password_string))
                 throw new RuntimeException("Wrong Email Or Password");
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("Book Store ...!");
-            stage.setScene(scene);
-            HomeController h = fxmlLoader.getController();
             ControllerRepo.setUser(u.getUser(email_string));
-            h.setUserName(u.getUser(email_string).getUser_name());
-            stage.setResizable(false);
-            stage.show();
+            ControllerRepo.createHomeStage(ControllerRepo.getUser().getUser_name());
             ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);

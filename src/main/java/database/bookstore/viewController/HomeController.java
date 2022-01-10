@@ -118,7 +118,7 @@ public class HomeController {
 
     private void modifyBook(Book book,Stage s) {
         try {
-            if (!ControllerRepo.getUser().isIs_manager()) {
+            if (ControllerRepo.getUser().isIs_manager()) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Need To modify Book with ISBN : " + book.getISBN() + " ?", ButtonType.YES, ButtonType.NO);
                 alert.showAndWait();
                 if (alert.getResult() == ButtonType.YES){
