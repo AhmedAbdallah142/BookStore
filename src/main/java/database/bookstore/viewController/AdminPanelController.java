@@ -1,6 +1,5 @@
 package database.bookstore.viewController;
 
-import database.bookstore.HelloApplication;
 import database.bookstore.database.BookDatabase;
 import database.bookstore.database.OrderDatabase;
 import database.bookstore.database.UserDatabase;
@@ -9,10 +8,9 @@ import database.bookstore.entites.Order;
 import database.bookstore.entites.Publisher;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -156,7 +154,7 @@ public class AdminPanelController {
     }
 
     @FXML
-    protected void onConfirmOrderClick() throws SQLException {
+    protected void onConfirmOrderClick(){
         try {
             if (confirmOrder.getText().isEmpty())
                 throw new RuntimeException("confirm order is null");
@@ -228,6 +226,19 @@ public class AdminPanelController {
         }
     }
 
+    @FXML
+    protected void onClickOrderTab(){
+//        ISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
+//        Title.setCellValueFactory(new PropertyValueFactory<>("Title"));
+//        price.setCellValueFactory(new PropertyValueFactory<>("Price"));
+//        noOfCopies.setCellValueFactory(new PropertyValueFactory<>("Copies"));
+//        Publisher.setCellValueFactory(new PropertyValueFactory<>("Publisher"));
+//        Category.setCellValueFactory(new PropertyValueFactory<>("Category"));
+//        Authors.setCellValueFactory(t -> t.getValue().getAuthorsProperty());
+//        Year.setCellValueFactory(new PropertyValueFactory<>("Publication_year"));
+//        tableView.getItems().addAll(bookDatabase.fetchBooks());
+    }
+
     public void changeMood(boolean isAddMood, Book b) {
         if (isAddMood){
             AddButton.setText("ADD");
@@ -252,7 +263,7 @@ public class AdminPanelController {
             price.setText("" + b.getPrice());
             category.setText(b.getCategory());
             threshold.setText(""+b.getThreshold());
-            noCopies.setText(b.getCategory());
+            noCopies.setText(""+b.getCopies());
             authors.setText(b.getAuthorsProperty().getValue());
         }
         this.isAddMood = isAddMood;
