@@ -97,7 +97,8 @@ public class BookDatabase {
 
      private Book createBook(ResultSet resultSet) throws SQLException {
         Book book = new Book();
-        book.setISBN(Integer.parseInt(resultSet.getString("ISBN")));
+        int isbn = Integer.parseInt(resultSet.getString("ISBN"));
+        book.setISBN(isbn);
         book.setTitle(resultSet.getString("title"));
         book.setPublisher(resultSet.getString("publisher"));
         book.setPublication_year(resultSet.getString("publication_year"));
@@ -105,6 +106,12 @@ public class BookDatabase {
         book.setCategory(resultSet.getString("category"));
         book.setCopies(Integer.parseInt(resultSet.getString("copies")));
         book.setThreshold(Integer.parseInt(resultSet.getString("threshold")));
+        ArrayList<String> authors = new ArrayList<String>();
+        ResultSet r = dataBase.getStatement().executeQuery("SELECT author_name FROM Author WHERE ISBN = '"+isbn+"';");
+        while(r.next()) {
+        	authors.add(r.getString("author_name"));
+        }
+        book.setAuthors(authors);
         return book;
      }
 
