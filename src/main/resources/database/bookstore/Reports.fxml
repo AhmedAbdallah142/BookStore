@@ -29,6 +29,21 @@
                         <Insets bottom="10.0" top="10.0" />
                     </VBox.margin>
                 </Text>
+            <HBox alignment="CENTER" prefHeight="72.0" prefWidth="921.0" spacing="5.0">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="28.0" onMouseClicked="#onLeftArrowClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/left-arrow.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="Page" fill="#e0e5de" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="page" text="1" />
+                  <ImageView fitHeight="28.0" fitWidth="83.0" onMouseClicked="#onRightArrowClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/right-arrow.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
             <TableView prefHeight="634.0" prefWidth="529.0">
                <columns>
                   <TableColumn prefWidth="155.0" text="ISBN" />

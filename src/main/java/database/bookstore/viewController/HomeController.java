@@ -42,6 +42,8 @@ public class HomeController {
     private TableColumn<Book, String> Authors;
     @FXML
     private TableColumn<Book, String> Year;
+    @FXML
+    private Text Page;
 
     @FXML
     public void initialize() throws SQLException {
@@ -171,6 +173,28 @@ public class HomeController {
             stage.setResizable(false);
             stage.show();
             ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    protected void onLeftArrowClick() {
+        try {
+            int page = Integer.parseInt(Page.getText());
+            Page.setText(String.valueOf(page == 1 ? 1:page-1));
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    protected void onRightArrowClick() {
+        try {
+            int page = Integer.parseInt(Page.getText());
+            Page.setText(String.valueOf(page+1));
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();

@@ -77,6 +77,12 @@
 .sign{
     -fx-font-size:14;
 }
+
+.page{
+    -fx-font-size:18;
+    -fx-font-family: "Stencil";
+    /*-fx-text-fill:#e0e5de;*/
+}
 .image-view{
    -fx-cursor: hand;
 }

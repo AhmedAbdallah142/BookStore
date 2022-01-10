@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -83,7 +84,8 @@ public class AdminPanelController {
     private TableColumn<User, Boolean> userTableIsManager;
 
     private boolean isAddMood = true;
-
+    @FXML
+    private Text Page;
     @FXML
     public void initialize() {
         orderTableOrderId.setCellValueFactory(new PropertyValueFactory<>("ID"));
@@ -287,6 +289,27 @@ public class AdminPanelController {
         }
     }
 
+    @FXML
+    protected void onLeftArrowClick() {
+        try {
+            int page = Integer.parseInt(Page.getText());
+            Page.setText(String.valueOf(page == 1 ? 1:page-1));
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    protected void onRightArrowClick() {
+        try {
+            int page = Integer.parseInt(Page.getText());
+            Page.setText(String.valueOf(page+1));
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
 
     public void changeMood(boolean isAddMood, Book b) {
         if (isAddMood) {
