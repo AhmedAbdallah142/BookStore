@@ -279,7 +279,7 @@ public class AdminPanelController {
             Tab t = (Tab) event.getSource();
             if (t.isSelected()) {
                 UserDatabase u = new UserDatabase();
-                userTable.getItems().addAll(u.getUsers());
+                userTable.getItems().addAll(u.getUsers(1));
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);

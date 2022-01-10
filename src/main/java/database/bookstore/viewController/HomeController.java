@@ -151,7 +151,7 @@ public class HomeController {
             if (search.getText().isEmpty())
                 throw new RuntimeException("search is null");
             BookDatabase bookDatabase = new BookDatabase();
-            ObservableList<Book> data = FXCollections.observableList(bookDatabase.search(search.getText()));
+            ObservableList<Book> data = FXCollections.observableList(bookDatabase.search(search.getText() , 1));
             tableView.setItems(data);
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
