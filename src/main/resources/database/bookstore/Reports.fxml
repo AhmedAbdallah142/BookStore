@@ -11,63 +11,60 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0"
-      prefWidth="550.0" spacing="10.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.Reports">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="550.0" spacing="10.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="database.bookstore.viewController.Reports">
     <padding>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
     <HBox prefHeight="12.0" prefWidth="455.0">
         <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../images/pngfind.com-return-icon-png-3339700.png"/>
+            <Image url="@../../images/pngfind.com-return-icon-png-3339700.png" />
         </ImageView>
     </HBox>
     <TabPane prefHeight="684.0" prefWidth="551.0" tabClosingPolicy="UNAVAILABLE">
         <Tab text="Total Sales">
-            <VBox prefHeight="200.0" prefWidth="100.0"/>
+            <VBox prefHeight="200.0" prefWidth="100.0" />
             <VBox alignment="CENTER" prefHeight="715.0" prefWidth="565.0">
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name"
-                      text="The total sales for books in the previous month">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="The total sales for books in the previous month">
                     <VBox.margin>
-                        <Insets bottom="10.0" top="10.0"/>
+                        <Insets bottom="10.0" top="10.0" />
                     </VBox.margin>
                 </Text>
-                <TableView prefHeight="634.0" prefWidth="529.0">
-                    <columns>
-                        <TableColumn prefWidth="253.0" text="ISBN"/>
-                        <TableColumn prefWidth="267.0" text="Quantity"/>
-                    </columns>
-                </TableView>
+            <TableView prefHeight="634.0" prefWidth="529.0">
+               <columns>
+                  <TableColumn prefWidth="155.0" text="ISBN" />
+                  <TableColumn prefWidth="182.0" text="Title" />
+                  <TableColumn prefWidth="182.0" text="Quantity" />
+               </columns>
+            </TableView>
             </VBox>
         </Tab>
         <Tab text="Top 5 Customers">
             <VBox alignment="CENTER" prefHeight="715.0" prefWidth="565.0">
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name"
-                      text="The top 5 customers who purchase the most amount">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="The top 5 customers who purchase the most amount">
                     <VBox.margin>
-                        <Insets bottom="10.0" top="10.0"/>
+                        <Insets bottom="10.0" top="10.0" />
                     </VBox.margin>
                 </Text>
                 <TableView prefHeight="634.0" prefWidth="529.0">
                     <columns>
-                        <TableColumn prefWidth="253.0" text="user name "/>
-                        <TableColumn prefWidth="267.0" text="Quantity"/>
+                        <TableColumn prefWidth="253.0" text="user name " />
+                        <TableColumn prefWidth="267.0" text="Quantity" />
                     </columns>
                 </TableView>
             </VBox>
         </Tab>
         <Tab text="Top 10 Books">
             <VBox alignment="CENTER" prefHeight="715.0" prefWidth="565.0">
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name"
-                      text="The top 10 selling books for the last three months">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="The top 10 selling books for the last three months">
                     <VBox.margin>
-                        <Insets bottom="10.0" top="10.0"/>
+                        <Insets bottom="10.0" top="10.0" />
                     </VBox.margin>
                 </Text>
                 <TableView prefHeight="634.0" prefWidth="529.0">
                     <columns>
-                        <TableColumn prefWidth="253.0" text="ISBN"/>
-                        <TableColumn prefWidth="267.0" text="Quantity"/>
+                        <TableColumn prefWidth="155.0" text="ISBN" />
+                  <TableColumn prefWidth="182.0" text="Title" />
+                        <TableColumn prefWidth="182.0" text="Quantity" />
                     </columns>
                 </TableView>
             </VBox>
