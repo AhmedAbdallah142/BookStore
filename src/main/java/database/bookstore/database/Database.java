@@ -38,4 +38,8 @@ public class Database {
         }
         return con.createStatement();
     }
+    
+    public Connection get_Connection() {
+    	return con;
+    }
 }
