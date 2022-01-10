@@ -63,7 +63,12 @@ public class SignUpController {
             User user = new User(user_name_string, password_string, first_name_string,
                     last_name_string, email_string, phone_string, address_string);
             UserDatabase u = new UserDatabase();
-            u.SignUp(user);
+            if(isSignUpMode) {
+            	u.SignUp(user);
+            }
+            else {
+            	u.editUser(user);
+            }
             createSignUpStage(user_name_string);
             ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
             ControllerRepo.setUser(user);
