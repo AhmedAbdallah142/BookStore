@@ -1,8 +1,10 @@
 package database.bookstore.viewController;
 
 import database.bookstore.database.BookDatabase;
+import database.bookstore.database.OrderDatabase;
 import database.bookstore.database.UserDatabase;
 import database.bookstore.entites.Book;
+import database.bookstore.entites.Order;
 import database.bookstore.entites.Publisher;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
@@ -115,11 +117,25 @@ public class AdminPanelController {
 
     @FXML
     protected void onAddOrderClick(){
-
+        if (OrderISBN.getText().isEmpty()){
+            throw new RuntimeException("order ISBN is null");
+        }
+        if (OrderNoCopies.getText().isEmpty()){
+            throw new RuntimeException("order Copies is null");
+        }
+        Order order = new Order();
+        order.setISBN(Integer.parseInt(OrderISBN.getText()));
+        order.setQuantity(Integer.parseInt(OrderNoCopies.getText()));
+        OrderDatabase orderDatabase = new OrderDatabase();
+        orderDatabase.place_order(order);
     }
     @FXML
     protected void onConfirmOrderClick(){
-
+        if (confirmOrder.getText().isEmpty()){
+            throw new RuntimeException("confirm order is null");
+        }
+        OrderDatabase orderDatabase = new OrderDatabase();
+        orderDatabase.confirm_order(Integer.parseInt(confirmOrder.getText()));
     }
     @FXML
     protected void onPromoteUserClick(){

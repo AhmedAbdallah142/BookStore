@@ -50,9 +50,7 @@ public class LogInController {
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("Book Store ...!");
             stage.setScene(scene);
-            HomeController h = fxmlLoader.getController();
             ControllerRepo.setUser(u.getUser(email_string));
-            h.setUserName(ControllerRepo.getUser().getUser_name());
             stage.setResizable(false);
             stage.show();
             ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();

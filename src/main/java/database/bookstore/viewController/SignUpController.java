@@ -62,7 +62,7 @@ public class SignUpController {
                     last_name_string, email_string, phone_string, address_string);
             UserDatabase u = new UserDatabase();
             u.SignUp(user);
-            createSignUpStage(user_name_string);
+            createSignUpStage();
             ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
             ControllerRepo.setUser(user);
         } catch (Exception e) {
@@ -92,12 +92,11 @@ public class SignUpController {
             throw new RuntimeException("Confirm Password doesn't Match Password");
     }
 
-    private void createSignUpStage(String userName) throws IOException {
+    private void createSignUpStage() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         HomeController h = fxmlLoader.getController();
-        h.setUserName(userName);
         stage.setTitle("BookStore ...!");
         stage.setScene(scene);
         stage.setResizable(false);
