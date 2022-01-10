@@ -1,6 +1,7 @@
 package database.bookstore.viewController;
 
 import database.bookstore.HelloApplication;
+import database.bookstore.database.BookDatabase;
 import database.bookstore.entites.Cart;
 import database.bookstore.entites.CartItem;
 import database.bookstore.entites.User;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ControllerRepo {
@@ -21,8 +23,19 @@ public class ControllerRepo {
         CurrentUser = user;
     }
 
-    public static void AddToCart(CartItem item){
-        userCart.add(item);
+    public static void AddToCart(CartItem item) throws SQLException{
+    	BookDatabase b = new BookDatabase();
+    	if(b.checkBook(item.getISBN())) {
+    		for(CartItem i : userCart) {
+        		if(i.getISBN() == item.getISBN()) {
+        			item.setQuantity(i.getQuantity()+item.getQuantity());
+        			break;
+        		}
+        	}
+            userCart.add(item);
+    	}else {
+    		throw new RuntimeException("Book not found in DataBase !!");
+    	}	
     }
 
     public static void ResetCart(){
