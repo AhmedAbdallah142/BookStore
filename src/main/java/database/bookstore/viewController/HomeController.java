@@ -44,6 +44,10 @@ public class HomeController {
     private TableColumn<Book, String> Year;
     @FXML
     private Text Page;
+    @FXML
+    private Button Report;
+    @FXML
+    private Button AdminPanel;
 
     private boolean isSearchMode = false;
 
@@ -70,6 +74,15 @@ public class HomeController {
             });
             return row;
         });
+        if(!ControllerRepo.getUser().isIs_manager()){
+            setUserMode();
+        }
+    }
+
+
+    private void setUserMode(){
+        AdminPanel.setVisible(false);
+        Report.setVisible(false);
     }
 
     @FXML
