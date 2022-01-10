@@ -25,14 +25,16 @@ public class ControllerRepo {
 
     public static void AddToCart(CartItem item) throws SQLException{
     	BookDatabase b = new BookDatabase();
+        boolean found = false;
     	if(b.checkBook(item.getISBN())) {
     		for(CartItem i : userCart) {
         		if(i.getISBN() == item.getISBN()) {
-        			item.setQuantity(i.getQuantity()+item.getQuantity());
+        			i.setQuantity(i.getQuantity()+item.getQuantity());
+                    found = true;
         			break;
         		}
         	}
-            userCart.add(item);
+            if (!found) userCart.add(item);
     	}else {
     		throw new RuntimeException("Book not found in DataBase !!");
     	}	
