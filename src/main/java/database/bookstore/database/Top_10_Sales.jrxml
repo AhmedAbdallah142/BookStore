@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Top_Sales" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="be3962b9-53e4-4aad-8ecf-71a9a2e98b84">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Top_10_Sales" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f5867909-ceec-4306-b6f9-56759a8e1752">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
 	<queryString language="SQL">
 		<![CDATA[Select b.ISBN , b.Title , sum(s.copies) as Total_Saled_Copies
 From Book AS b , Sale as s
 where b.ISBN = s.ISBN 
-AND s.date >= DATE_ADD(NOW(),INTERVAL -30 DAY) 
+AND s.date >= DATE_ADD(NOW(),INTERVAL-90 DAY) 
 Group by b.ISBN
-Order by Total_Saled_Copies desc]]>
+Order by Total_Saled_Copies desc LIMIT 10 OFFSET 0 ;]]>
 	</queryString>
 	<field name="ISBN" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.name" value="ISBN"/>
@@ -31,11 +31,11 @@ Order by Total_Saled_Copies desc]]>
 	<title>
 		<band height="47" splitType="Stretch">
 			<staticText>
-				<reportElement x="167" y="3" width="220" height="40" uuid="e7545001-38c9-451f-b261-8ba343dd3697"/>
+				<reportElement x="110" y="0" width="349" height="40" uuid="e7545001-38c9-451f-b261-8ba343dd3697"/>
 				<textElement>
 					<font size="26" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Sales Last Month]]></text>
+				<text><![CDATA[Top 10 Sales Last 3 Months]]></text>
 			</staticText>
 		</band>
 	</title>
