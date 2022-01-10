@@ -189,18 +189,18 @@ public class BookDatabase {
         return true;
     }
 
-    public ArrayList<Book> search(String key) throws SQLException {
-        String q = "SELECT * FROM Book As B JOIN Author As A WHERE Category LIKE '%" + key + "%' OR A.ISBN LIKE '%" + key  + "%'"
+    public ArrayList<Book> search(String key , Integer offset) throws SQLException {
+        String q = "SELECT * FROM Book As B JOIN Author As A  WHERE Category LIKE '%" + key + "%' OR A.ISBN LIKE '%" + key  + "%'"
                 +"OR title LIKE '%" + key + "%'"
                 +"OR author_name LIKE '%" + key + "%'"
-                +"OR publisher LIKE '%" + key + "%'" ;
+                +"OR publisher LIKE '%" + key + "%'" + "LIMIT 50 OFFSET " + (offset-1)*50 + " ;" ;
         /*ResultSet resultSet = dataBase.getStatement().executeQuery(q);
          */
         return getBooks(q);
     }
 
     public ArrayList<Book> fetchBooks(Integer offset) throws SQLException {
-        String q = "SELECT * FROM book LIMIT 50 OFFSET" + offset + ";";
+        String q = "SELECT * FROM book LIMIT 50 OFFSET " + (offset-1)*50 + " ;";
         return getBooks(q);
     }
 

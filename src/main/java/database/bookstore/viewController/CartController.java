@@ -34,7 +34,7 @@ public class CartController {
     @FXML
     public void initialize(){
         tableIsbn.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
-        tableIsbn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        tableQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 //        ObservableList<CartItem> data = FXCollections.observableArrayList(ControllerRepo.getUserCart());
 //        cartTable.setItems(data);
     }
@@ -54,12 +54,12 @@ public class CartController {
         try {
             ControllerRepo.AddToCart(new CartItem(Integer.parseInt(isbn.getText()),Integer.parseInt(Quantity.getText())));
             ObservableList<CartItem> data = FXCollections.observableArrayList(ControllerRepo.getUserCart());
+            System.out.println(ControllerRepo.getUserCart().get(0).getQuantity());
             cartTable.setItems(data);
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
         }
-
     }
     @FXML
     protected void onCheckOutClick() throws SQLException{
