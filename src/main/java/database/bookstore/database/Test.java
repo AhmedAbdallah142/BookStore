@@ -6,8 +6,8 @@ public class Test {
 
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
-		CustomerDatabase c = new CustomerDatabase();
-		c.insertBook(null);
+		UserDatabase u = new UserDatabase();
+		System.out.println(u.getUsers().size());
 	}
 
 }

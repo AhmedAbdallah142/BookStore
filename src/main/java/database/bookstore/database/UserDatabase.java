@@ -81,6 +81,7 @@ public class UserDatabase {
 		        }else {
 		        	user.setIs_manager(false);
 		        }
+		        users.add(user);
 	        }
 	    	return users;
 	    }
