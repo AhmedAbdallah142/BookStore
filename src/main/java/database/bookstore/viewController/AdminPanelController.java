@@ -7,6 +7,8 @@ import database.bookstore.entites.Book;
 import database.bookstore.entites.Order;
 import database.bookstore.entites.Publisher;
 import database.bookstore.entites.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -20,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminPanelController {
+    @FXML
+    public Text Page1;
     @FXML
     private TextField addIsbn;
     @FXML
@@ -68,7 +72,6 @@ public class AdminPanelController {
     private TableColumn<Order, Integer> orderTableISBN;
     @FXML
     private TableColumn<Order, Integer> orderTableNCopies;
-
     @FXML
     private TableView<User> userTable;
     @FXML
@@ -118,7 +121,7 @@ public class AdminPanelController {
             book.setCategory(category.getText());
             book.setThreshold(Integer.parseInt(threshold.getText()));
             book.setCopies(Integer.parseInt(noCopies.getText()));
-            ArrayList<String> authors_list = new ArrayList<String>(List.of(authors.getText().split(",")));
+            ArrayList<String> authors_list = new ArrayList<>(List.of(authors.getText().split(",")));
             book.setAuthors(authors_list);
             BookDatabase bookDatabase = new BookDatabase();
             if (isAddMood)
@@ -273,8 +276,40 @@ public class AdminPanelController {
             Tab t = (Tab) event.getSource();
             if (t.isSelected()) {
                 OrderDatabase o = new OrderDatabase();
-                OrderTable.getItems().addAll(o.getOrders(Integer.parseInt(Page.getText())));
+                ObservableList<Order> data = FXCollections.observableList(o.getOrders(Integer.parseInt(Page.getText())));
+                OrderTable.setItems(data);
             }
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+
+    @FXML
+    protected void onLeftArrowOrderClick() {
+        try {
+            int page = Integer.parseInt(Page.getText());
+            if (page != 1) {
+                Page.setText(String.valueOf(page - 1));
+                OrderDatabase o = new OrderDatabase();
+                ObservableList<Order> data = FXCollections.observableList(o.getOrders(Integer.parseInt(Page.getText())));
+                OrderTable.setItems(data);
+            }
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    protected void onRightArrowOrderClick() {
+        try {
+            int page = Integer.parseInt(Page.getText());
+            Page.setText(String.valueOf(page + 1));
+            OrderDatabase o = new OrderDatabase();
+            ObservableList<Order> data = FXCollections.observableList(o.getOrders(Integer.parseInt(Page.getText())));
+            OrderTable.setItems(data);
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
@@ -287,7 +322,25 @@ public class AdminPanelController {
             Tab t = (Tab) event.getSource();
             if (t.isSelected()) {
                 UserDatabase u = new UserDatabase();
-                userTable.getItems().addAll(u.getUsers(1));
+                ObservableList<User> data = FXCollections.observableList(u.getUsers(Integer.parseInt(Page1.getText())));
+                userTable.setItems(data);
+            }
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+
+    @FXML
+    protected void onLeftArrowUserClick() {
+        try {
+            int page = Integer.parseInt(Page1.getText());
+            if (page != 1) {
+                Page1.setText(String.valueOf(page - 1));
+                UserDatabase u = new UserDatabase();
+                ObservableList<User> data = FXCollections.observableList(u.getUsers(Integer.parseInt(Page1.getText())));
+                userTable.setItems(data);
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
@@ -296,21 +349,13 @@ public class AdminPanelController {
     }
 
     @FXML
-    protected void onLeftArrowClick() {
+    protected void onRightArrowUserClick() {
         try {
-            int page = Integer.parseInt(Page.getText());
-            Page.setText(String.valueOf(page == 1 ? 1 : page - 1));
-        } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
-            alert.showAndWait();
-        }
-    }
-
-    @FXML
-    protected void onRightArrowClick() {
-        try {
-            int page = Integer.parseInt(Page.getText());
-            Page.setText(String.valueOf(page + 1));
+            int page = Integer.parseInt(Page1.getText());
+            Page1.setText(String.valueOf(page + 1));
+            UserDatabase u = new UserDatabase();
+            ObservableList<User> data = FXCollections.observableList(u.getUsers(Integer.parseInt(Page1.getText())));
+            userTable.setItems(data);
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();

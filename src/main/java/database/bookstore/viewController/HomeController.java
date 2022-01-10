@@ -44,10 +44,15 @@ public class HomeController {
     private TableColumn<Book, String> Year;
     @FXML
     private Text Page;
+    @FXML
+    private Button Report;
+    @FXML
+    private Button AdminPanel;
+
+    private boolean isSearchMode = false;
 
     @FXML
     public void initialize() throws SQLException {
-        BookDatabase bookDatabase = new BookDatabase();
         ISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
         Title.setCellValueFactory(new PropertyValueFactory<>("Title"));
         price.setCellValueFactory(new PropertyValueFactory<>("Price"));
@@ -56,19 +61,42 @@ public class HomeController {
         Category.setCellValueFactory(new PropertyValueFactory<>("Category"));
         Authors.setCellValueFactory(t -> t.getValue().getAuthorsProperty());
         Year.setCellValueFactory(new PropertyValueFactory<>("Publication_year"));
-        tableView.getItems().addAll(bookDatabase.fetchBooks(1));
+        loadBooks();
         tableView.setRowFactory(tv -> {
             TableRow<Book> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty() && event.getButton() == MouseButton.SECONDARY && event.getClickCount() == 2) {
                     Book clickedRow = row.getItem();
-                    modifyBook(clickedRow,(Stage) ((Node) (event.getSource())).getScene().getWindow());
+                    modifyBook(clickedRow, (Stage) ((Node) (event.getSource())).getScene().getWindow());
                 } else if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
                     System.out.println("Add To Cart Still Not Working");
                 }
             });
             return row;
         });
+        if(!ControllerRepo.getUser().isIs_manager()){
+            setUserMode();
+        }
+    }
+
+
+    private void setUserMode(){
+        AdminPanel.setVisible(false);
+        Report.setVisible(false);
+    }
+
+    @FXML
+    protected void onSearchBoxTyping() {
+        try {
+            if (search.getText().isEmpty()) {
+                isSearchMode = false;
+                loadBooks();
+            }
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+
     }
 
     @FXML
@@ -85,7 +113,6 @@ public class HomeController {
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
-            e.printStackTrace();
         }
     }
 
@@ -119,12 +146,12 @@ public class HomeController {
         }
     }
 
-    private void modifyBook(Book book,Stage s) {
+    private void modifyBook(Book book, Stage s) {
         try {
             if (ControllerRepo.getUser().isIs_manager()) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Need To modify Book with ISBN : " + book.getISBN() + " ?", ButtonType.YES, ButtonType.NO);
                 alert.showAndWait();
-                if (alert.getResult() == ButtonType.YES){
+                if (alert.getResult() == ButtonType.YES) {
                     createAdminStage(false, book);
                     s.close();
                 }
@@ -153,8 +180,9 @@ public class HomeController {
             if (search.getText().isEmpty())
                 throw new RuntimeException("search is null");
             BookDatabase bookDatabase = new BookDatabase();
-            ObservableList<Book> data = FXCollections.observableList(bookDatabase.search(search.getText() , 1));
+            ObservableList<Book> data = FXCollections.observableList(bookDatabase.search(search.getText(), Integer.parseInt(Page.getText())));
             tableView.setItems(data);
+            isSearchMode = true;
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
@@ -179,11 +207,23 @@ public class HomeController {
         }
     }
 
+    private void loadBooks() throws SQLException {
+        BookDatabase bookDatabase = new BookDatabase();
+        ObservableList<Book> data = FXCollections.observableList(bookDatabase.fetchBooks(Integer.parseInt(Page.getText())));
+        tableView.setItems(data);
+    }
+
     @FXML
     protected void onLeftArrowClick() {
         try {
             int page = Integer.parseInt(Page.getText());
-            Page.setText(String.valueOf(page == 1 ? 1:page-1));
+            if (page != 1){
+                Page.setText(String.valueOf(page - 1));
+                if (isSearchMode)
+                    onSearchClick();
+                else
+                    loadBooks();
+            }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
@@ -194,7 +234,11 @@ public class HomeController {
     protected void onRightArrowClick() {
         try {
             int page = Integer.parseInt(Page.getText());
-            Page.setText(String.valueOf(page+1));
+            Page.setText(String.valueOf(page + 1));
+            if (isSearchMode)
+                onSearchClick();
+            else
+                loadBooks();
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();

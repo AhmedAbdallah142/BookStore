@@ -25,7 +25,7 @@
         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="112.0" prefWidth="825.0">
             <Label text="Phone"/>
             <TextField fx:id="phone" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                       promptText="user first name"/>
+                       promptText="phone"/>
         </VBox>
     </HBox>
     <Label text="Email"/>

@@ -95,22 +95,19 @@
                     </VBox>
                     <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onAddOrderClick" text="Add Order" />
                 </HBox>
-            <HBox alignment="CENTER" prefHeight="72.0" prefWidth="921.0" spacing="5.0">
-               <children>
-                  <ImageView fitHeight="32.0" fitWidth="28.0" onMouseClicked="#onLeftArrowClick" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/left-arrow.png" />
-                     </image>
-                  </ImageView>
-                  <Text fx:id="Page" fill="#e0e5de" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="page" text="1" />
-                  <ImageView fitHeight="28.0" fitWidth="83.0" onMouseClicked="#onRightArrowClick" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/right-arrow.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
-                <TableView prefHeight="411.0" prefWidth="622.0">
+                <HBox alignment="CENTER" prefHeight="72.0" prefWidth="921.0" spacing="5.0">
+                    <ImageView fitHeight="32.0" fitWidth="28.0" onMouseClicked="#onLeftArrowOrderClick" pickOnBounds="true"
+                               preserveRatio="true">
+                        <Image url="@../../images/left-arrow.png"/>
+                    </ImageView>
+                    <Text fx:id="Page" fill="#e0e5de" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="page"
+                          text="1"/>
+                    <ImageView fitHeight="28.0" fitWidth="83.0" onMouseClicked="#onRightArrowOrderClick" pickOnBounds="true"
+                               preserveRatio="true">
+                        <Image url="@../../images/right-arrow.png"/>
+                    </ImageView>
+                </HBox>
+                <TableView fx:id="OrderTable" prefHeight="411.0" prefWidth="622.0">
                     <columns>
                         <TableColumn fx:id="orderTableOrderId" prefWidth="200.0" text="order id" />
                         <TableColumn fx:id="orderTableISBN" prefWidth="226.0" text="isbn" />
@@ -132,21 +129,18 @@
                     </VBox>
                     <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onPromoteUserClick" text="Promote User" />
                 </HBox>
-            <HBox alignment="CENTER" prefHeight="15.0" prefWidth="654.0" spacing="5.0">
-               <children>
-                  <ImageView fitHeight="32.0" fitWidth="28.0" onMouseClicked="#onLeftArrowClick" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/left-arrow.png" />
-                     </image>
-                  </ImageView>
-                  <Text fx:id="Page1" fill="#e0e5de" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="page" text="1" />
-                  <ImageView fitHeight="28.0" fitWidth="83.0" onMouseClicked="#onRightArrowClick" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/right-arrow.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
+                <HBox alignment="CENTER" prefHeight="15.0" prefWidth="654.0" spacing="5.0">
+                    <ImageView fitHeight="32.0" fitWidth="28.0" onMouseClicked="#onLeftArrowUserClick" pickOnBounds="true"
+                               preserveRatio="true">
+                        <Image url="@../../images/left-arrow.png"/>
+                    </ImageView>
+                    <Text fx:id="Page1" fill="#e0e5de" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="page"
+                          text="1"/>
+                    <ImageView fitHeight="28.0" fitWidth="83.0" onMouseClicked="#onRightArrowUserClick" pickOnBounds="true"
+                               preserveRatio="true">
+                        <Image url="@../../images/right-arrow.png"/>
+                    </ImageView>
+                </HBox>
                 <TableView fx:id="userTable" prefHeight="386.0" prefWidth="624.0">
                     <columns>
                         <TableColumn fx:id="userTableEmail" prefWidth="163.0" text="Email" />
