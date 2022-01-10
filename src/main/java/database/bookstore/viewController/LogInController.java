@@ -50,6 +50,7 @@ public class LogInController {
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
+            e.printStackTrace();
         }
 
     }

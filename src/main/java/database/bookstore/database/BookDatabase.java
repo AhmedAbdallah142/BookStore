@@ -200,7 +200,7 @@ public class BookDatabase {
     }
 
     public ArrayList<Book> fetchBooks(Integer offset) throws SQLException {
-        String q = "SELECT * FROM book LIMIT 50 OFFSET" + offset + ";";
+        String q = "SELECT * FROM book LIMIT 50 OFFSET " + (offset-1)*50 + " ;";
         return getBooks(q);
     }
 
