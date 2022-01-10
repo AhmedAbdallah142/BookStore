@@ -15,9 +15,14 @@ public class BookDatabase {
     }
 
 
-    public Boolean checkBook(Integer ISBN) throws SQLException {
-        ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * FROM Book WHERE ISBN = " + ISBN + ";");
-        return resultSet.next();
+    public double checkBook(Integer ISBN) throws SQLException {
+        ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT price FROM Book WHERE ISBN = " + ISBN + ";");
+        if (resultSet.next()){
+            return Double.parseDouble(resultSet.getString("price"));
+        }
+        else {
+            throw new RuntimeException("not exists");
+        }
     }
     public Boolean insertBook(Book b) throws SQLException {
     	dataBase.getStatement().execute("INSERT INTO book VALUES"
