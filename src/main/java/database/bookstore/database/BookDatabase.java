@@ -199,8 +199,8 @@ public class BookDatabase {
         return getBooks(q);
     }
 
-    public ArrayList<Book> fetchBooks() throws SQLException {
-        String q = "SELECT * FROM book";
+    public ArrayList<Book> fetchBooks(Integer offset) throws SQLException {
+        String q = "SELECT * FROM book LIMIT 50 OFFSET" + offset + ";";
         return getBooks(q);
     }
 
