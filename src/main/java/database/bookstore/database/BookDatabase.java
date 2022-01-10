@@ -40,7 +40,7 @@ public class BookDatabase {
     }
 
     public Boolean modifyBook(Book newBook , Integer ISBN , ArrayList<String> newAuthors) throws SQLException {
-        // delete old authors that not found in newAuthors
+       /* // delete old authors that not found in newAuthors
         String newAuthorsNames = "";
         for (String name : newAuthors){
             if (newAuthorsNames.isEmpty()){
@@ -77,7 +77,25 @@ public class BookDatabase {
         newAuthorsNames_updated += ";";
 
         // insert into Author table the values
-        dataBase.getStatement().execute("INSERT INTO author VALUES ('"+ newAuthorsNames_updated+"')");
+        //dataBase.getStatement().execute("INSERT INTO author VALUES ('"+ newAuthorsNames_updated+"')");
+        String insertQ = "INSERT INTO author VALUES" + newAuthorsNames_updated;
+        try {
+            if (!newAuthorsNames_updated.equals(" ;")) {
+                dataBase.getStatement().execute(insertQ);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }*/
+        dataBase.getStatement().execute("DELETE FROM author WHERE ISBN = " + ISBN + ";");
+        for (String authorName : newAuthors){
+            dataBase.getStatement().execute("INSERT INTO author VALUES"
+                    + "("
+                    + "'" + authorName + "'" + ","
+                    + ISBN
+                    + ");"
+            );
+        }
+
 
         // update existing book
         dataBase.getStatement().execute("UPDATE bOOK SET "
@@ -87,7 +105,8 @@ public class BookDatabase {
                 +"publication_year = " + "'"+ newBook.getPublication_year() + "'" + ","
                 +"category = " + "'" + newBook.getCategory() + "'" + ","
                 + "copies = " + newBook.getCopies() + ","
-                +"threshold = " + newBook.getThreshold() + " "
+                +"threshold = " + newBook.getThreshold() + ","
+                + "price = " + newBook.getPrice() + " "
                 + "WHERE ISBN = " + ISBN + ";"
         );
         return true;

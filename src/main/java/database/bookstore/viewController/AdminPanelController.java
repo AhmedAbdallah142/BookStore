@@ -86,9 +86,13 @@ public class AdminPanelController {
             BookDatabase bookDatabase = new BookDatabase();
             if (isAddMood)
                 bookDatabase.insertBook(book);
+            else {
+                bookDatabase.modifyBook(book , Integer.valueOf(addIsbn.getText()), authors_list );
+            }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
+            e.printStackTrace();
         }
     }
 
