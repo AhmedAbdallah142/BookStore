@@ -6,6 +6,7 @@ import database.bookstore.database.UserDatabase;
 import database.bookstore.entites.Book;
 import database.bookstore.entites.Order;
 import database.bookstore.entites.Publisher;
+import database.bookstore.entites.User;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -59,8 +60,42 @@ public class AdminPanelController {
     private TextField addCategoryName;
     @FXML
     private Button AddButton;
+    @FXML
+    private TableView<Order> OrderTable;
+    @FXML
+    private TableColumn<Order, Integer> orderTableOrderId;
+    @FXML
+    private TableColumn<Order, Integer> orderTableISBN;
+    @FXML
+    private TableColumn<Order, Integer> orderTableNCopies;
+
+    @FXML
+    private TableView<User> userTable;
+    @FXML
+    private TableColumn<User, String> userTableEmail;
+    @FXML
+    private TableColumn<User, String> userTableName;
+    @FXML
+    private TableColumn<User, String> userTablePhone;
+    @FXML
+    private TableColumn<User, String> userTableAddress;
+    @FXML
+    private TableColumn<User, Boolean> userTableIsManager;
 
     private boolean isAddMood = true;
+
+    @FXML
+    public void initialize() {
+        orderTableOrderId.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        orderTableISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
+        orderTableNCopies.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+
+        userTableEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        userTableName.setCellValueFactory(new PropertyValueFactory<>("user_name"));
+        userTablePhone.setCellValueFactory(new PropertyValueFactory<>("phone_number"));
+        userTableAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        userTableIsManager.setCellValueFactory(new PropertyValueFactory<>("is_manager"));
+    }
 
     @FXML
     protected void onBackClick(Event event) throws IOException {
@@ -154,7 +189,7 @@ public class AdminPanelController {
     }
 
     @FXML
-    protected void onConfirmOrderClick(){
+    protected void onConfirmOrderClick() {
         try {
             if (confirmOrder.getText().isEmpty())
                 throw new RuntimeException("confirm order is null");
@@ -227,20 +262,30 @@ public class AdminPanelController {
     }
 
     @FXML
-    protected void onClickOrderTab(){
-//        ISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
-//        Title.setCellValueFactory(new PropertyValueFactory<>("Title"));
-//        price.setCellValueFactory(new PropertyValueFactory<>("Price"));
-//        noOfCopies.setCellValueFactory(new PropertyValueFactory<>("Copies"));
-//        Publisher.setCellValueFactory(new PropertyValueFactory<>("Publisher"));
-//        Category.setCellValueFactory(new PropertyValueFactory<>("Category"));
-//        Authors.setCellValueFactory(t -> t.getValue().getAuthorsProperty());
-//        Year.setCellValueFactory(new PropertyValueFactory<>("Publication_year"));
-//        tableView.getItems().addAll(bookDatabase.fetchBooks());
+    protected void onClickOrderTab(Event e) {
+        Tab t = (Tab) e.getSource();
+        if (t.isSelected()) {
+            System.out.println("Add To Order Table Here");
+        }
     }
 
+    @FXML
+    protected void onClickUsersTab(Event event) {
+        try {
+            Tab t = (Tab) event.getSource();
+            if (t.isSelected()) {
+                UserDatabase u = new UserDatabase();
+                userTable.getItems().addAll(u.getUsers());
+            }
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+
     public void changeMood(boolean isAddMood, Book b) {
-        if (isAddMood){
+        if (isAddMood) {
             AddButton.setText("ADD");
             addIsbn.setEditable(true);
             addIsbn.setText(null);
@@ -252,8 +297,7 @@ public class AdminPanelController {
             threshold.setText(null);
             noCopies.setText(null);
             authors.setText(null);
-        }
-        else {
+        } else {
             AddButton.setText("Modify");
             addIsbn.setText("" + b.getISBN());
             addIsbn.setEditable(false);
@@ -262,8 +306,8 @@ public class AdminPanelController {
             publicationYear.setText(b.getPublication_year());
             price.setText("" + b.getPrice());
             category.setText(b.getCategory());
-            threshold.setText(""+b.getThreshold());
-            noCopies.setText(""+b.getCopies());
+            threshold.setText("" + b.getThreshold());
+            noCopies.setText("" + b.getCopies());
             authors.setText(b.getAuthorsProperty().getValue());
         }
         this.isAddMood = isAddMood;

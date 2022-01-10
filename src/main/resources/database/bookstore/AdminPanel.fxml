@@ -83,7 +83,7 @@
                 </HBox>
             </VBox>
         </Tab>
-        <Tab text="Order">
+        <Tab onSelectionChanged="#onClickOrderTab" text="Order">
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                 <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                     <VBox prefHeight="568.0" prefWidth="1271.0">
@@ -96,9 +96,9 @@
                 </HBox>
                 <TableView prefHeight="411.0" prefWidth="622.0">
                     <columns>
-                        <TableColumn prefWidth="200.0" text="order id" />
-                        <TableColumn prefWidth="226.0" text="isbn" />
-                        <TableColumn prefWidth="227.0" text="no of copies" />
+                        <TableColumn fx:id="orderTableOrderId" prefWidth="200.0" text="order id" />
+                        <TableColumn fx:id="orderTableISBN" prefWidth="226.0" text="isbn" />
+                        <TableColumn fx:id="orderTableNCopies" prefWidth="227.0" text="no of copies" />
                     </columns>
                 </TableView>
                 <HBox alignment="CENTER" prefHeight="0.0" prefWidth="624.0" spacing="10.0">
@@ -107,7 +107,7 @@
                 </HBox>
             </VBox>
         </Tab>
-        <Tab text="Users">
+        <Tab onSelectionChanged="#onClickUsersTab" text="Users">
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                 <HBox alignment="BOTTOM_CENTER" prefHeight="0.0" prefWidth="624.0" spacing="10.0">
                     <VBox prefHeight="568.0" prefWidth="1271.0">
@@ -116,13 +116,13 @@
                     </VBox>
                     <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onPromoteUserClick" text="Promote User" />
                 </HBox>
-                <TableView prefHeight="386.0" prefWidth="624.0">
+                <TableView fx:id="userTable" prefHeight="386.0" prefWidth="624.0">
                     <columns>
-                        <TableColumn prefWidth="163.0" text="Email" />
-                        <TableColumn prefWidth="82.0" text="name" />
-                        <TableColumn prefWidth="91.0" text="Phone" />
-                        <TableColumn prefWidth="184.0" text="Address" />
-                        <TableColumn prefWidth="133.0" text="Is Manager" />
+                        <TableColumn fx:id="userTableEmail" prefWidth="163.0" text="Email" />
+                        <TableColumn fx:id="userTableName" prefWidth="82.0" text="name" />
+                        <TableColumn fx:id="userTablePhone" prefWidth="91.0" text="Phone" />
+                        <TableColumn fx:id="userTableAddress" prefWidth="184.0" text="Address" />
+                        <TableColumn fx:id="userTableIsManager" prefWidth="133.0" text="Is Manager" />
                     </columns>
                 </TableView>
             </VBox>

@@ -1,21 +1,37 @@
 package database.bookstore.viewController;
 
 import database.bookstore.HelloApplication;
+import database.bookstore.entites.Cart;
+import database.bookstore.entites.CartItem;
 import database.bookstore.entites.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ControllerRepo {
     private static User CurrentUser;
+    private static ArrayList<CartItem> userCart = new ArrayList<>();
     public static User getUser() {
         return CurrentUser;
     }
     public static void setUser(User user) {
         CurrentUser = user;
     }
+
+    public void AddToCart(CartItem item){
+        userCart.add(item);
+    }
+
+    public void ResetCart(){
+        userCart = new ArrayList<>();
+    }
+    public ArrayList<CartItem> getUserCart(){
+        return userCart;
+    }
+
     public static void createHomeStage(String userName) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home.fxml"));

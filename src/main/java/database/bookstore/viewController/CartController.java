@@ -1,8 +1,12 @@
 package database.bookstore.viewController;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class CartController {
     @FXML
@@ -18,6 +22,12 @@ public class CartController {
 
     @FXML
     protected void onBackClick(){
+        try {
+            ControllerRepo.createHomeStage(ControllerRepo.getUser().getUser_name());
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
 
     }
     @FXML
