@@ -52,7 +52,7 @@ public class CartController {
         try {
             ControllerRepo.AddToCart(new CartItem(Integer.parseInt(isbn.getText()),Integer.parseInt(Quantity.getText())));
             ObservableList<CartItem> data = FXCollections.observableArrayList(ControllerRepo.getUserCart());
-            System.out.println(data);
+            System.out.println(ControllerRepo.getUserCart().get(0).getQuantity());
             cartTable.setItems(data);
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
