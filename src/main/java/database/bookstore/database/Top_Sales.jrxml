@@ -31,11 +31,11 @@ Order by Total_Saled_Copies desc]]>
 	<title>
 		<band height="47" splitType="Stretch">
 			<staticText>
-				<reportElement x="137" y="0" width="280" height="40" uuid="e7545001-38c9-451f-b261-8ba343dd3697"/>
+				<reportElement x="167" y="3" width="220" height="40" uuid="e7545001-38c9-451f-b261-8ba343dd3697"/>
 				<textElement>
 					<font size="26" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Top Sales Last Month]]></text>
+				<text><![CDATA[Sales Last Month]]></text>
 			</staticText>
 		</band>
 	</title>
