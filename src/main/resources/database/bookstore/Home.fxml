@@ -41,7 +41,7 @@
                        preserveRatio="true">
                 <Image url="@../../images/left-arrow.png"/>
             </ImageView>
-            <Text fx:id="Page" fill="#e0e5de" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="page" text="1"/>
+            <Text fx:id="Page" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="page" text="1"/>
             <ImageView onMouseClicked="#onRightArrowClick" fitHeight="28.0" fitWidth="83.0" pickOnBounds="true"
                        preserveRatio="true">
                 <Image url="@../../images/right-arrow.png"/>

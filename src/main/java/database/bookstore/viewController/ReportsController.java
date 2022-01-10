@@ -1,13 +1,20 @@
 package database.bookstore.viewController;
 
+import database.bookstore.entites.ReportSaleItem;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
 
 public class ReportsController {
     @FXML
     private Text Page;
+    @FXML
+    private TableView<ReportSaleItem> totalSales;
+    @FXML
+    private TableColumn<ReportSaleItem,String> tssotalSales;
     @FXML
     protected void onLeftArrowClick() {
         try {

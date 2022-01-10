@@ -16,7 +16,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,6 +85,7 @@ public class AdminPanelController {
     private boolean isAddMood = true;
     @FXML
     private Text Page;
+
     @FXML
     public void initialize() {
         orderTableOrderId.setCellValueFactory(new PropertyValueFactory<>("ID"));
@@ -124,7 +124,7 @@ public class AdminPanelController {
             if (isAddMood)
                 bookDatabase.insertBook(book);
             else {
-                bookDatabase.modifyBook(book , Integer.valueOf(addIsbn.getText()), authors_list );
+                bookDatabase.modifyBook(book, Integer.valueOf(addIsbn.getText()), authors_list);
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
@@ -268,10 +268,16 @@ public class AdminPanelController {
     }
 
     @FXML
-    protected void onClickOrderTab(Event e) {
-        Tab t = (Tab) e.getSource();
-        if (t.isSelected()) {
-            System.out.println("Add To Order Table Here");
+    protected void onClickOrderTab(Event event) {
+        try {
+            Tab t = (Tab) event.getSource();
+            if (t.isSelected()) {
+                OrderDatabase o = new OrderDatabase();
+                OrderTable.getItems().addAll(o.getOrders(Integer.parseInt(Page.getText())));
+            }
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
         }
     }
 
@@ -293,7 +299,7 @@ public class AdminPanelController {
     protected void onLeftArrowClick() {
         try {
             int page = Integer.parseInt(Page.getText());
-            Page.setText(String.valueOf(page == 1 ? 1:page-1));
+            Page.setText(String.valueOf(page == 1 ? 1 : page - 1));
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
@@ -304,7 +310,7 @@ public class AdminPanelController {
     protected void onRightArrowClick() {
         try {
             int page = Integer.parseInt(Page.getText());
-            Page.setText(String.valueOf(page+1));
+            Page.setText(String.valueOf(page + 1));
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
