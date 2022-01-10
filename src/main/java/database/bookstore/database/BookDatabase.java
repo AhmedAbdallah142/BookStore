@@ -14,6 +14,11 @@ public class BookDatabase {
         dataBase = Database.getInstance();
     }
 
+
+    public Boolean checkBook(Integer ISBN) throws SQLException {
+        ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * FROM Book WHERE ISBN = " + ISBN + ";");
+        return resultSet.next();
+    }
     public Boolean insertBook(Book b) throws SQLException {
     	dataBase.getStatement().execute("INSERT INTO book VALUES"
                 + "( "
