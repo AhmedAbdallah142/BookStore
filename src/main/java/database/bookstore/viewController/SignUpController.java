@@ -50,7 +50,7 @@ public class SignUpController {
     }
 
     @FXML
-    protected void onSignUpClick(Event event) throws IOException {
+    protected void onSignUpClick(Event event) {
         try {
             validateSignUp();
             String email_string = email.getText().trim();
@@ -71,9 +71,9 @@ public class SignUpController {
             	 user.setIs_manager(us.isIs_manager());
             	u.editUser(user);
             }
+            ControllerRepo.setUser(user);
             ControllerRepo.createHomeStage(user_name_string);
             ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
-            ControllerRepo.setUser(user);
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();

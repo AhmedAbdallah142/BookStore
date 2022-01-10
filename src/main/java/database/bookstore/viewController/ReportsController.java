@@ -1,15 +1,23 @@
 package database.bookstore.viewController;
 
+import database.bookstore.HelloApplication;
 import database.bookstore.database.ReportDatabase;
 import database.bookstore.entites.ReportEmailItem;
 import database.bookstore.entites.ReportSaleItem;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 
 public class ReportsController {
@@ -59,14 +67,28 @@ public class ReportsController {
         }
     }
 
+
+    @FXML
+    protected void onBackClick(Event event) {
+        try {
+            ControllerRepo.createHomeStage(ControllerRepo.getUser().getUser_name());
+            ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
     @FXML
     protected void onTotalSalesPrint() {
 
     }
+
     @FXML
     protected void onTop5Print() {
 
     }
+
     @FXML
     protected void onTop10Print() {
 
@@ -76,7 +98,7 @@ public class ReportsController {
     protected void onLeftArrowClick() {
         try {
             int page = Integer.parseInt(Page.getText());
-            if (page != 1){
+            if (page != 1) {
                 Page.setText(String.valueOf(page - 1));
                 ReportDatabase r = new ReportDatabase();
                 totalSales.getItems().addAll(r.Total_Sales_For_Books(Integer.parseInt(Page.getText())));

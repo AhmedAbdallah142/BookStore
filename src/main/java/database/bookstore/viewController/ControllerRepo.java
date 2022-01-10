@@ -16,34 +16,34 @@ import java.util.ArrayList;
 public class ControllerRepo {
     private static User CurrentUser;
     private static ArrayList<CartItem> userCart = new ArrayList<>();
+
     public static User getUser() {
         return CurrentUser;
     }
+
     public static void setUser(User user) {
         CurrentUser = user;
     }
 
-    public static void AddToCart(CartItem item) throws SQLException{
-    	/*BookDatabase b = new BookDatabase();
+    public static void AddToCart(CartItem item) throws SQLException {
+        BookDatabase b = new BookDatabase();
         boolean found = false;
-    	if(b.checkBook(item.getISBN())) {
-    		for(CartItem i : userCart) {
-        		if(i.getISBN() == item.getISBN()) {
-        			i.setQuantity(i.getQuantity()+item.getQuantity());
-                    found = true;
-        			break;
-        		}
-        	}
-            if (!found) userCart.add(item);
-    	}else {
-    		throw new RuntimeException("Book not found in DataBase !!");
-    	}	*/
+        item.setPrice(b.checkBook(item.getISBN()));
+        for (CartItem i : userCart) {
+            if (i.getISBN() == item.getISBN()) {
+                i.setQuantity(i.getQuantity() + item.getQuantity());
+                found = true;
+                break;
+            }
+        }
+        if (!found) userCart.add(item);
     }
 
-    public static void ResetCart(){
+    public static void ResetCart() {
         userCart = new ArrayList<>();
     }
-    public static ArrayList<CartItem> getUserCart(){
+
+    public static ArrayList<CartItem> getUserCart() {
         return userCart;
     }
 

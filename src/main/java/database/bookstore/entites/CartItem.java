@@ -4,6 +4,7 @@ public class CartItem {
 
 	int ISBN;
 	int quantity;
+	double Price;
 	public CartItem(int iSBN, int quantity) {
 		super();
 		ISBN = iSBN;
@@ -21,5 +22,12 @@ public class CartItem {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
+
+	public double getPrice() {
+		return Price;
+	}
+
+	public void setPrice(double price) {
+		Price = price;
+	}
 }

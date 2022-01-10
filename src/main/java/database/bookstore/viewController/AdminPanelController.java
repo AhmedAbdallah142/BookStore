@@ -132,7 +132,6 @@ public class AdminPanelController {
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
-            e.printStackTrace();
         }
     }
 
@@ -238,6 +237,9 @@ public class AdminPanelController {
             String addPublisherPhone_string = addPublisherPhone.getText().trim();
             Publisher publisher = new Publisher(addPublisherName_string, addPublisherAddress_string, addPublisherPhone_string);
             userDatabase.addPublisher(publisher);
+            addPublisherName.setText("");
+            addPublisherAddress.setText("");
+            addPublisherPhone.setText("");
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
@@ -251,6 +253,7 @@ public class AdminPanelController {
                 throw new RuntimeException("author is null");
             UserDatabase userDatabase = new UserDatabase();
             userDatabase.addAuthor(addAuthorName.getText());
+            addAuthorName.setText("");
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
@@ -264,6 +267,7 @@ public class AdminPanelController {
                 throw new RuntimeException("category is null");
             BookDatabase bookDatabase = new BookDatabase();
             bookDatabase.addCategory(addCategoryName.getText().trim());
+            addCategoryName.setText("");
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
