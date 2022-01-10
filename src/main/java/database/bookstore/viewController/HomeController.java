@@ -54,7 +54,7 @@ public class HomeController {
         Category.setCellValueFactory(new PropertyValueFactory<>("Category"));
         Authors.setCellValueFactory(t -> t.getValue().getAuthorsProperty());
         Year.setCellValueFactory(new PropertyValueFactory<>("Publication_year"));
-        tableView.getItems().addAll(bookDatabase.fetchBooks());
+        tableView.getItems().addAll(bookDatabase.fetchBooks(1));
         tableView.setRowFactory(tv -> {
             TableRow<Book> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
