@@ -14,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class LogInController {
 
@@ -53,14 +52,12 @@ public class LogInController {
             HomeController h = fxmlLoader.getController();
             ControllerRepo.setUser(u.getUser(email_string));
             h.setUserName(u.getUser(email_string).getUser_name());
-            System.out.println(ControllerRepo.getUser().getUser_name());
             stage.setResizable(false);
             stage.show();
             ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
-            e.printStackTrace();
         }
 
     }

@@ -10,22 +10,4 @@ public class ControllerRepo {
     public static void setUser(User user) {
         CurrentUser = user;
     }
-//    private User CurrentUser;
-//    private static ControllerRepo instance = null;
-//    private ControllerRepo(){
-//
-//    }
-//    public static ControllerRepo getInstance() {
-//        if (instance == null)
-//            instance = new ControllerRepo();
-//        return instance;
-//    }
-//
-//    public User getUser() {
-//        return CurrentUser;
-//    }
-//
-//    public void setUser(User user) {
-//        CurrentUser = user;
-//    }
 }

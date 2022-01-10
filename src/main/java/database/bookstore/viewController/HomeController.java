@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -54,41 +55,27 @@ public class HomeController {
         Authors.setCellValueFactory(t -> t.getValue().getAuthorsProperty());
         Year.setCellValueFactory(new PropertyValueFactory<>("Publication_year"));
         tableView.getItems().addAll(bookDatabase.fetchBooks());
+        tableView.setRowFactory(tv -> {
+            TableRow<Book> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.SECONDARY && event.getClickCount() == 2) {
+                    Book clickedRow = row.getItem();
+                    modifyBook(clickedRow,(Stage) ((Node) (event.getSource())).getScene().getWindow());
+                } else if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                    System.out.println("Add To Cart Still Not Working");
+                }
+            });
+            return row;
+        });
     }
 
     @FXML
-    protected void onCartClick(Event event) throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Cart.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Cart ...!");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
-        ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
-    }
-
-    @FXML
-    protected void onProfileClick(Event event) throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignUp.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        SignUpController s = fxmlLoader.getController();
-        s.ChangeMood(false);
-        stage.setTitle("Modify info ...!");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
-        ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
-    }
-
-    @FXML
-    protected void onAdminClick(Event event) {
+    protected void onCartClick(Event event) {
         try {
             Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminPanel.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Cart.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("AdminPanel ...!");
+            stage.setTitle("Cart ...!");
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
@@ -97,6 +84,64 @@ public class HomeController {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
         }
+    }
+
+    @FXML
+    protected void onProfileClick(Event event) {
+        try {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignUp.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            SignUpController s = fxmlLoader.getController();
+            s.ChangeMood(false);
+            stage.setTitle("Modify info ...!");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+            ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    protected void onAdminClick(Event event) {
+        try {
+            createAdminStage(true, null);
+            ((Stage) ((Node) (event.getSource())).getScene().getWindow()).close();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    private void modifyBook(Book book,Stage s) {
+        try {
+            if (!ControllerRepo.getUser().isIs_manager()) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Need To modify Book with ISBN : " + book.getISBN() + " ?", ButtonType.YES, ButtonType.NO);
+                alert.showAndWait();
+                if (alert.getResult() == ButtonType.YES){
+                    createAdminStage(false, book);
+                    s.close();
+                }
+            }
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    private void createAdminStage(boolean isAddMode, Book book) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminPanel.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        AdminPanelController d = fxmlLoader.getController();
+        d.changeMood(isAddMode, book);
+        stage.setTitle("AdminPanel ...!");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 
     @FXML

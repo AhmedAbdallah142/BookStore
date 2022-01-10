@@ -69,7 +69,7 @@
                 </HBox>
                 <Label text="Author name(s)" />
                 <TextField fx:id="authors" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="first author , second author " />
-                <Button mnemonicParsing="false" onMouseClicked="#onAddClick" text="ADD">
+                <Button fx:id="AddButton" mnemonicParsing="false" onMouseClicked="#onAddClick" text="ADD">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
