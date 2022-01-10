@@ -22,9 +22,9 @@ public class OrderDatabase {
 		dataBase.getStatement().execute("DELETE FROM Order WHERE order_id = '"+id+"';");
 	}
 	
-	public ArrayList<Order> getOrders() throws SQLException{
+	public ArrayList<Order> getOrders(Integer offset) throws SQLException{
 		ArrayList<Order> orders = new ArrayList<Order>();
-		ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * FROM Order;");
+		ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * FROM Order LIMIT 50 OFFSET " + (offset-1)*50 + " ;");
 		while(resultSet.next()) {
 			Order o = new Order();
 			o.setID(Integer.parseInt(resultSet.getString("order_id")));

@@ -64,9 +64,9 @@ public class UserDatabase {
 	    }
 	    
 	    
-	    public ArrayList<User> getUsers() throws SQLException{
+	    public ArrayList<User> getUsers(Integer offset) throws SQLException{
 	    	ArrayList<User> users = new ArrayList<User>();
-	    	ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * from User;");
+	    	ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * from User LIMIT 50 OFFSET " +(offset-1)*50 + " ;" );
 	        while(resultSet.next()) {
 	        	User user = new User();
 	        	user.setUser_name(resultSet.getString("username"));
