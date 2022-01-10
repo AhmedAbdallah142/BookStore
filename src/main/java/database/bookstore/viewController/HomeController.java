@@ -10,9 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -75,6 +73,8 @@ public class HomeController {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignUp.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        SignUpController s = fxmlLoader.getController();
+        s.ChangeMood(false);
         stage.setTitle("Modify info ...!");
         stage.setScene(scene);
         stage.setResizable(false);
@@ -103,9 +103,9 @@ public class HomeController {
             ObservableList<Book> data = FXCollections.observableList(bookDatabase.search(search.getText()));
             tableView.setItems(data);
         } catch (SQLException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
         }
-
     }
 
 

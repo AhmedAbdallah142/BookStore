@@ -54,5 +54,5 @@
             <PasswordField fx:id="confirm_password" promptText="confirm password"/>
         </VBox>
     </HBox>
-    <Button onMouseClicked="#onSignUpClick" prefHeight="39.0" prefWidth="125.0" text="Sign Up ..." underline="true"/>
+    <Button fx:id="clickButton" onMouseClicked="#onSignUpClick" prefHeight="39.0" prefWidth="125.0" text="Sign Up ..." underline="true"/>
 </VBox>

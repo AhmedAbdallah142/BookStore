@@ -1,6 +1,7 @@
 package database.bookstore.viewController;
 
 import database.bookstore.HelloApplication;
+import database.bookstore.database.BookDatabase;
 import database.bookstore.database.UserDatabase;
 import database.bookstore.entites.User;
 import javafx.event.Event;
@@ -8,10 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -34,7 +33,10 @@ public class SignUpController {
     private PasswordField password;
     @FXML
     private PasswordField confirm_password;
+    @FXML
+    private Button clickButton;
 
+    private boolean isSignUpMode = true;
     @FXML
     protected void onBackClick(Event event) throws IOException {
         Stage stage = new Stage();
@@ -102,5 +104,13 @@ public class SignUpController {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
+
+    public void ChangeMood(boolean isSignUpMode){
+        if (isSignUpMode)
+            clickButton.setText("Sign Up..");
+        else
+            clickButton.setText("Modify");
+        this.isSignUpMode = isSignUpMode;
     }
 }
