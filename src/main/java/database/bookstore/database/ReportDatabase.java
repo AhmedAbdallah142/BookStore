@@ -32,4 +32,25 @@ private final Database dataBase;
 		
 		return report;
 	}
+	
+	
+	public ArrayList<ReportSaleItem> Total_Sales_For_Books_last_three(int page) throws SQLException{
+		ArrayList<ReportSaleItem> report = new ArrayList<ReportSaleItem>();
+		ResultSet resultSet = dataBase.getStatement().executeQuery(
+				"Select b.ISBN , b.Title , sum(s.copies) as Total_Saled_Copies \n" + 
+				"From Book AS b , Sale as s \n" + 
+				"where b.ISBN = s.ISBN  \n" + 
+				"AND s.date >= DATE_ADD(NOW(),INTERVAL-90 DAY) \n" + 
+				"Group by b.ISBN \n" + 
+				"Order by Total_Saled_Copies desc LIMIT 10 OFFSET 0 ;");
+		while(resultSet.next()) {
+			ReportSaleItem r = new ReportSaleItem();
+			r.setISBN(Integer.parseInt(resultSet.getString("ISBN")));
+			r.setTitle(resultSet.getString("Title"));
+			r.setQuantity(Integer.parseInt(resultSet.getString("Total_Saled_Copies")));
+			report.add(r);
+		}
+		
+		return report;
+	}
 }
