@@ -61,12 +61,14 @@ public class SignUpController {
             String address_string = address.getText().trim();
             String password_string = password.getText().trim();
             User user = new User(user_name_string, password_string, first_name_string,
-                    last_name_string, email_string, phone_string, address_string);
+                    last_name_string, email_string, phone_string, address_string,false);
             UserDatabase u = new UserDatabase();
             if(isSignUpMode) {
             	u.SignUp(user);
             }
             else {
+            	 User us = ControllerRepo.getUser();
+            	 user.setIs_manager(us.isIs_manager());
             	u.editUser(user);
             }
             createSignUpStage(user_name_string);

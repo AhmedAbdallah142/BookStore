@@ -59,6 +59,7 @@ public class UserDatabase {
 	        user.setPhone_number(resultSet.getString("phone_number"));
 	        user.setAddress(resultSet.getString("shipping_address"));
 	        user.setEmail(email);
+	        user.setIs_manager(resultSet.getString("is_manager").contains("1"));
 	    	return user;
 	    }
 	    
