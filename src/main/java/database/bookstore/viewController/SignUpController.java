@@ -75,6 +75,7 @@ public class SignUpController {
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
+            e.printStackTrace();
 //            if (alert.getResult() == ButtonType.YES) {
 //                //do stuff
 //            }
@@ -105,6 +106,7 @@ public class SignUpController {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         HomeController h = fxmlLoader.getController();
+        h.setUserName(userName);
         stage.setTitle("BookStore ...!");
         stage.setScene(scene);
         stage.setResizable(false);

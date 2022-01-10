@@ -42,9 +42,9 @@ public class UserDatabase {
 	    }
 	    
 	    public void editUser(User u) throws SQLException {
-	    	dataBase.getStatement().execute("UPDATE User SET username = '"+u.getUser_name()+"' AND first_name = '"+u.getFirst_name()+
-	    			"' AND last_name ='"+u.getLast_name()+"' AND password = '"+u.getPassword()+
-	    			"' AND phone_number ='"+u.getPhone_number()+"' AND shipping_address = '"+u.getAddress()+
+	    	dataBase.getStatement().execute("UPDATE User SET username = '"+u.getUser_name()+"' , first_name = '"+u.getFirst_name()+
+	    			"' , last_name ='"+u.getLast_name()+"' , password = '"+u.getPassword()+
+	    			"' , phone_number ='"+u.getPhone_number()+"' , shipping_address = '"+u.getAddress()+
 	    			"'  WHERE email = '"+u.getEmail()+"';");
 	    }
 	    
