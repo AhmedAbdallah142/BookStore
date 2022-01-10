@@ -29,26 +29,23 @@
                         <Insets bottom="10.0" top="10.0" />
                     </VBox.margin>
                 </Text>
-            <HBox alignment="CENTER" prefHeight="72.0" prefWidth="921.0" spacing="5.0">
-               <children>
-                  <ImageView fitHeight="32.0" fitWidth="28.0" onMouseClicked="#onLeftArrowClick" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/left-arrow.png" />
-                     </image>
-                  </ImageView>
-                  <Text fx:id="Page" fill="#e0e5de" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="page" text="1" />
-                  <ImageView fitHeight="28.0" fitWidth="83.0" onMouseClicked="#onRightArrowClick" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/right-arrow.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
-            <TableView prefHeight="634.0" prefWidth="529.0">
+                <HBox alignment="CENTER" prefHeight="72.0" prefWidth="921.0" spacing="5.0">
+                    <ImageView fitHeight="32.0" fitWidth="28.0" onMouseClicked="#onLeftArrowClick" pickOnBounds="true"
+                               preserveRatio="true">
+                        <Image url="@../../images/left-arrow.png"/>
+                    </ImageView>
+                    <Text fx:id="Page" fill="#e0e5de" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="page"
+                          text="1"/>
+                    <ImageView fitHeight="28.0" fitWidth="83.0" onMouseClicked="#onRightArrowClick" pickOnBounds="true"
+                               preserveRatio="true">
+                        <Image url="@../../images/right-arrow.png"/>
+                    </ImageView>
+                </HBox>
+            <TableView fx:id="totalSales" prefHeight="634.0" prefWidth="529.0">
                <columns>
-                  <TableColumn prefWidth="155.0" text="ISBN" />
-                  <TableColumn prefWidth="182.0" text="Title" />
-                  <TableColumn prefWidth="182.0" text="Quantity" />
+                  <TableColumn fx:id="totalSalesISBN" prefWidth="155.0" text="ISBN" />
+                  <TableColumn fx:id="totalSalesTitle" prefWidth="182.0" text="Title" />
+                  <TableColumn fx:id="totalSalesQuantity" prefWidth="182.0" text="Quantity" />
                </columns>
             </TableView>
             </VBox>
@@ -60,10 +57,10 @@
                         <Insets bottom="10.0" top="10.0" />
                     </VBox.margin>
                 </Text>
-                <TableView prefHeight="634.0" prefWidth="529.0">
+                <TableView fx:id="top5" prefHeight="634.0" prefWidth="529.0">
                     <columns>
-                        <TableColumn prefWidth="253.0" text="user name " />
-                        <TableColumn prefWidth="267.0" text="Quantity" />
+                        <TableColumn fx:id="top5Email" prefWidth="253.0" text="user name " />
+                        <TableColumn fx:id="top5Purchases" prefWidth="267.0" text="total Price" />
                     </columns>
                 </TableView>
             </VBox>
@@ -75,11 +72,11 @@
                         <Insets bottom="10.0" top="10.0" />
                     </VBox.margin>
                 </Text>
-                <TableView prefHeight="634.0" prefWidth="529.0">
+                <TableView fx:id="top10" prefHeight="634.0" prefWidth="529.0">
                     <columns>
-                        <TableColumn prefWidth="155.0" text="ISBN" />
-                  <TableColumn prefWidth="182.0" text="Title" />
-                        <TableColumn prefWidth="182.0" text="Quantity" />
+                        <TableColumn fx:id="top10ISBN" prefWidth="155.0" text="ISBN" />
+                        <TableColumn fx:id="top10Title" prefWidth="182.0" text="Title" />
+                        <TableColumn fx:id="top10Quantity" prefWidth="182.0" text="Quantity" />
                     </columns>
                 </TableView>
             </VBox>
