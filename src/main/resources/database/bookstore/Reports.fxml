@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -22,7 +23,6 @@
     </HBox>
     <TabPane prefHeight="684.0" prefWidth="551.0" tabClosingPolicy="UNAVAILABLE">
         <Tab text="Total Sales">
-            <VBox prefHeight="200.0" prefWidth="100.0" />
             <VBox alignment="CENTER" prefHeight="715.0" prefWidth="565.0">
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user-name" text="The total sales for books in the previous month">
                     <VBox.margin>
@@ -30,15 +30,12 @@
                     </VBox.margin>
                 </Text>
                 <HBox alignment="CENTER" prefHeight="72.0" prefWidth="921.0" spacing="5.0">
-                    <ImageView fitHeight="32.0" fitWidth="28.0" onMouseClicked="#onLeftArrowClick" pickOnBounds="true"
-                               preserveRatio="true">
-                        <Image url="@../../images/left-arrow.png"/>
+                    <ImageView fitHeight="32.0" fitWidth="28.0" onMouseClicked="#onLeftArrowClick" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../images/left-arrow.png" />
                     </ImageView>
-                    <Text fx:id="Page" fill="#e0e5de" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="page"
-                          text="1"/>
-                    <ImageView fitHeight="28.0" fitWidth="83.0" onMouseClicked="#onRightArrowClick" pickOnBounds="true"
-                               preserveRatio="true">
-                        <Image url="@../../images/right-arrow.png"/>
+                    <Text fx:id="Page" fill="#e0e5de" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="page" text="1" />
+                    <ImageView fitHeight="28.0" fitWidth="83.0" onMouseClicked="#onRightArrowClick" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../images/right-arrow.png" />
                     </ImageView>
                 </HBox>
             <TableView fx:id="totalSales" prefHeight="634.0" prefWidth="529.0">
@@ -48,6 +45,11 @@
                   <TableColumn fx:id="totalSalesQuantity" prefWidth="182.0" text="Quantity" />
                </columns>
             </TableView>
+            <Button onMouseClicked="#onTotalSalesPrint" mnemonicParsing="false" text="Print">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
             </VBox>
         </Tab>
         <Tab text="Top 5 Customers">
@@ -63,6 +65,11 @@
                         <TableColumn fx:id="top5Purchases" prefWidth="267.0" text="total Price" />
                     </columns>
                 </TableView>
+            <Button onMouseClicked="#onTop5Print" mnemonicParsing="false" text="Print">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
             </VBox>
         </Tab>
         <Tab text="Top 10 Books">
@@ -79,6 +86,11 @@
                         <TableColumn fx:id="top10Quantity" prefWidth="182.0" text="Quantity" />
                     </columns>
                 </TableView>
+            <Button onMouseClicked="#onTop10Print" mnemonicParsing="false" text="Print">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
             </VBox>
         </Tab>
     </TabPane>

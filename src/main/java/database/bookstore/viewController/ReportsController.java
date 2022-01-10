@@ -51,12 +51,25 @@ public class ReportsController {
             top10Quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
             ReportDatabase r = new ReportDatabase();
             totalSales.getItems().addAll(r.Total_Sales_For_Books(Integer.parseInt(Page.getText())));
-            top5.getItems().addAll(r.Top_Customers_last_three(1));
-            top10.getItems().addAll(r.Top_Sales_For_Books_last_three(1));
+            top5.getItems().addAll(r.Top_Customers_last_three());
+            top10.getItems().addAll(r.Top_Sales_For_Books_last_three());
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
         }
+    }
+
+    @FXML
+    protected void onTotalSalesPrint() {
+
+    }
+    @FXML
+    protected void onTop5Print() {
+
+    }
+    @FXML
+    protected void onTop10Print() {
+
     }
 
     @FXML

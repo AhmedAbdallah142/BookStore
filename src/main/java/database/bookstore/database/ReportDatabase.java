@@ -34,7 +34,7 @@ private final Database dataBase;
 		return report;
 	}
 	
-	public ArrayList<ReportEmailItem> Top_Customers_last_three(int page) throws SQLException{
+	public ArrayList<ReportEmailItem> Top_Customers_last_three() throws SQLException{
 		ArrayList<ReportEmailItem> report = new ArrayList<ReportEmailItem>();
 		ResultSet resultSet = dataBase.getStatement().executeQuery(
 				"select u.email , sum(b.price * s.copies) as Total_Purchases \r\n" + 
@@ -55,7 +55,7 @@ private final Database dataBase;
 	}
 	
 	
-	public ArrayList<ReportSaleItem> Top_Sales_For_Books_last_three(int page) throws SQLException{
+	public ArrayList<ReportSaleItem> Top_Sales_For_Books_last_three() throws SQLException{
 		ArrayList<ReportSaleItem> report = new ArrayList<ReportSaleItem>();
 		ResultSet resultSet = dataBase.getStatement().executeQuery(
 				"Select b.ISBN , b.Title , sum(s.copies) as Total_Saled_Copies \n" + 
