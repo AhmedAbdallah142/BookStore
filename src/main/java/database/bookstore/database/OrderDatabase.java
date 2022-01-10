@@ -24,7 +24,7 @@ public class OrderDatabase {
 	
 	public ArrayList<Order> getOrders(Integer offset) throws SQLException{
 		ArrayList<Order> orders = new ArrayList<Order>();
-		ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * FROM Order LIMIT 50 OFFSET " + (offset-1)*50 + " ;");
+		ResultSet resultSet = dataBase.getStatement().executeQuery("SELECT * FROM bookstore.Order LIMIT 50 OFFSET " + (offset-1)*50 + " ;");
 		while(resultSet.next()) {
 			Order o = new Order();
 			o.setID(Integer.parseInt(resultSet.getString("order_id")));

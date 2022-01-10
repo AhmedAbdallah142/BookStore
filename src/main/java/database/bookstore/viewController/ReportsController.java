@@ -78,6 +78,8 @@ public class ReportsController {
             int page = Integer.parseInt(Page.getText());
             if (page != 1){
                 Page.setText(String.valueOf(page - 1));
+                ReportDatabase r = new ReportDatabase();
+                totalSales.getItems().addAll(r.Total_Sales_For_Books(Integer.parseInt(Page.getText())));
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
@@ -90,6 +92,8 @@ public class ReportsController {
         try {
             int page = Integer.parseInt(Page.getText());
             Page.setText(String.valueOf(page + 1));
+            ReportDatabase r = new ReportDatabase();
+            totalSales.getItems().addAll(r.Total_Sales_For_Books(Integer.parseInt(Page.getText())));
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();

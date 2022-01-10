@@ -7,6 +7,8 @@ import database.bookstore.entites.Book;
 import database.bookstore.entites.Order;
 import database.bookstore.entites.Publisher;
 import database.bookstore.entites.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -20,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminPanelController {
+    @FXML
+    public Text Page1;
     @FXML
     private TextField addIsbn;
     @FXML
@@ -287,7 +291,8 @@ public class AdminPanelController {
             Tab t = (Tab) event.getSource();
             if (t.isSelected()) {
                 UserDatabase u = new UserDatabase();
-                userTable.getItems().addAll(u.getUsers(1));
+                ObservableList<User> data = FXCollections.observableList(u.getUsers(1));
+                userTable.setItems(data);
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
