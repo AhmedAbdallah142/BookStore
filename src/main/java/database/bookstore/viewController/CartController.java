@@ -1,6 +1,6 @@
 package database.bookstore.viewController;
 
-import database.bookstore.entites.Cart;
+import database.bookstore.database.CartDatabase;
 import database.bookstore.entites.CartItem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class CartController {
     @FXML
@@ -60,7 +62,28 @@ public class CartController {
         }
     }
     @FXML
-    protected void onCheckOutClick(){
-
+    protected void onCheckOutClick() throws SQLException{
+    	String CardId_string = CardId.getText().trim();
+    	if(CardId_string.length() != 14) {
+    		throw new RuntimeException("WRONG CardId !!");
+    	}
+    	String CCV_string = CCV.getText().trim();
+    	if(CCV_string.length() != 3) {
+    		throw new RuntimeException("WRONG CVV !!");
+    	}
+    	LocalDate localDate = expirationDate.getValue();
+    	if(localDate == null) {
+    		throw new RuntimeException("ENTER EXPIRATION DATE !!");
+    	}
+    	LocalDate current = LocalDate.now();
+    	boolean isBefore = localDate.isBefore(current);
+    	if(isBefore) {
+    		throw new RuntimeException("WRONG EXPIRATION DATE !!");
+    	}
+    	CartDatabase c = new CartDatabase();
+    	c.buy(ControllerRepo.getUserCart(), ControllerRepo.getUser().getEmail());
+    	
+    	
+    	
     }
 }
