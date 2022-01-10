@@ -58,7 +58,6 @@ public class CartController {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
         }
-
     }
     @FXML
     protected void onCheckOutClick(){
