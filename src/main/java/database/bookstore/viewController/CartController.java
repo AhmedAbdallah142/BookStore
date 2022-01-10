@@ -21,6 +21,11 @@ public class CartController {
     private DatePicker expirationDate;
 
     @FXML
+    public void initialize(){
+
+    }
+
+    @FXML
     protected void onBackClick(){
         try {
             ControllerRepo.createHomeStage(ControllerRepo.getUser().getUser_name());

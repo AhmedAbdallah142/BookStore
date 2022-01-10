@@ -21,14 +21,14 @@ public class ControllerRepo {
         CurrentUser = user;
     }
 
-    public void AddToCart(CartItem item){
+    public static void AddToCart(CartItem item){
         userCart.add(item);
     }
 
-    public void ResetCart(){
+    public static void ResetCart(){
         userCart = new ArrayList<>();
     }
-    public ArrayList<CartItem> getUserCart(){
+    public static ArrayList<CartItem> getUserCart(){
         return userCart;
     }
 
