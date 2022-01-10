@@ -1,10 +1,12 @@
 package database.bookstore.viewController;
 
+import database.bookstore.entites.Cart;
+import database.bookstore.entites.CartItem;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 
@@ -21,8 +23,18 @@ public class CartController {
     private DatePicker expirationDate;
 
     @FXML
-    public void initialize(){
+    private TableView<CartItem> cartTable;
+    @FXML
+    private TableColumn<CartItem,Integer> tableIsbn;
+    @FXML
+    private TableColumn<CartItem,Integer> tableQuantity;
 
+    @FXML
+    public void initialize(){
+        tableIsbn.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
+        tableIsbn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+//        ObservableList<CartItem> data = FXCollections.observableArrayList(ControllerRepo.getUserCart());
+//        cartTable.setItems(data);
     }
 
     @FXML
@@ -37,6 +49,14 @@ public class CartController {
     }
     @FXML
     protected void onAddToCartClick(){
+        try {
+            ControllerRepo.AddToCart(new CartItem(Integer.parseInt(isbn.getText()),Integer.parseInt(Quantity.getText())));
+            ObservableList<CartItem> data = FXCollections.observableArrayList(ControllerRepo.getUserCart());
+            cartTable.setItems(data);
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
 
     }
     @FXML
