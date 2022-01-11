@@ -230,7 +230,7 @@ DROP procedure IF EXISTS `place_order`;
 
 DELIMITER $$
 USE `bookstore`$$
-CREATE PROCEDURE `place_order` ()
+CREATE PROCEDURE `place_order` (new_ISBN INT)
 BEGIN
 Insert into bookStore.Order (ISBN,quantity) values (new_ISBN,(Select
 threshold from Book where Book.ISBN = new_ISBN));
