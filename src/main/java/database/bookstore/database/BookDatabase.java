@@ -184,21 +184,19 @@ public class BookDatabase {
         return getBooks(q);
     }
 
-    public boolean removeBook(Integer ISBN) throws SQLException {
+    public void removeBook(Integer ISBN) throws SQLException {
         dataBase.getStatement().execute("DELETE FROM Book WHERE ISBN = " + ISBN);
-        return true;
     }
 
-    public boolean addCategory(String category) throws SQLException {
+    public void addCategory(String category) throws SQLException {
         dataBase.getStatement().execute("INSERT INTO category VALUES" + "(" + "'" +category +"'" +  ");" );
-        return true;
     }
 
     public ArrayList<Book> search(String key , Integer offset) throws SQLException {
-        String q = "SELECT * FROM Book As B JOIN Author As A  WHERE Category LIKE '%" + key + "%' OR A.ISBN LIKE '%" + key  + "%'"
+        String q = "SELECT DISTINCT * FROM Book As B JOIN Author As A  WHERE Category LIKE '%" + key + "%' OR A.ISBN LIKE '%" + key  + "%'"
                 +"OR title LIKE '%" + key + "%'"
                 +"OR author_name LIKE '%" + key + "%'"
-                +"OR publisher LIKE '%" + key + "%'" + "LIMIT 50 OFFSET " + (offset-1)*50 + " ;" ;
+                +"OR publisher LIKE '%" + key + "%'" + "GROUP BY B.ISBN  ORDER BY B.ISBN LIMIT 50 OFFSET " + (offset-1)*50 + " ;" ;
         /*ResultSet resultSet = dataBase.getStatement().executeQuery(q);
          */
         return getBooks(q);
